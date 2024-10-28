@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,18 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Auradent
+namespace Auradent.pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Signuppage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Signuppage : Page
     {
-        public MainWindow()
+        public Signuppage()
         {
             InitializeComponent();
         }
-
 
         private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)
         {
@@ -32,21 +35,9 @@ namespace Auradent
 
         }
 
-        private void Signup_btn_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Signup_btn_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void Textboxsignup_Loaded_2(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
-    
-
 }

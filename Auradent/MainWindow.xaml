@@ -32,9 +32,9 @@
         <Label Content="Connect the distance between" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" Margin="28,29,-28,56" Grid.RowSpan="6" Grid.ColumnSpan="2" />
         <Label Content="you and others!" Grid.Row ="1" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" Margin="32,13,-32,54" Grid.RowSpan="6" Grid.ColumnSpan="2" />
         <Label Content="Sign up and create your account here." Grid.Row ="2" Grid.Column="2" FontSize="19" Foreground="#D7EFFB" Margin="34,40,-34,54" Grid.RowSpan="5" Grid.ColumnSpan="2" />
-        <userconrols:Textboxsignup Grid.Column="2" Grid.Row="4" Margin="30,90,120,52" Placeholder="Username" Grid.ColumnSpan="2" Grid.RowSpan="2" Loaded="Textboxsignup_Loaded_2"/>
+        <userconrols:Textboxsignup x:Name="Usr_name" Grid.Column="2" Grid.Row="4" Margin="30,90,120,52" Placeholder="Username" Grid.ColumnSpan="2" Grid.RowSpan="2" Loaded="Textboxsignup_Loaded_2"/>
         <Label Content="Enter Username" Grid.Row="4" Grid.Column="2" Margin="38,30,95,109" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
-        <userconrols:Passwordtxtbox Grid.Column="2" Grid.Row="6" Margin="32,53,118,43" Placeholder="Password" Grid.ColumnSpan="2"/>
+        <userconrols:Passwordtxtbox x:Name="Pass_txt_box" Grid.Column="2" Grid.Row="6" Margin="32,53,118,43" Placeholder="Password" Grid.ColumnSpan="2"/>
         <Label Content="Create your Password" Grid.Row="5" Grid.Column="2" Margin="38,116,95,121" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
         <Border CornerRadius="20" BorderBrush="Gray" BorderThickness="1" Padding="0" Grid.Row="7" Grid.Column="2" Margin="103,29,19,26">
             <Border.Background>
@@ -53,8 +53,8 @@
                     <GradientStop Color="#FF96AEBA" Offset="0.997"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Button x:Name="Sign_btn1" Content="Log in" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
-                Grid.Row="8" Grid.Column="2" BorderThickness="0" Padding="10,5,10,5" Click="Signup_btn_Click" FontSize="35" Background="Transparent" BorderBrush="{x:Null}" />
+            <Button x:Name="Login_page" Content="Log in" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                Grid.Row="8" Grid.Column="2" BorderThickness="0" Padding="10,5,10,5" Click="Login_page_Click" FontSize="35" Background="Transparent" BorderBrush="{x:Null}" />
         </Border>
 
     </Grid>

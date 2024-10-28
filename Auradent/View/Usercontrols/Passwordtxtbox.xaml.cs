@@ -34,7 +34,7 @@ namespace Auradent.View.Usercontrols
                 tbplaceholder.Text = placeholder;
             }
         }
-
+        public string PasswordContent => pass_txt.Password;
 
         private void Txt_sign_up_PasswordChanged(object sender, RoutedEventArgs e)
         {

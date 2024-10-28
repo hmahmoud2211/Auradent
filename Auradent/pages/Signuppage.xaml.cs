@@ -37,7 +37,7 @@ namespace Auradent.pages
 
         private void Signup_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Content = new MainWindow();
         }
     }
 }

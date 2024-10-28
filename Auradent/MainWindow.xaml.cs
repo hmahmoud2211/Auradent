@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Auradent.pages;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -32,19 +33,42 @@ namespace Auradent
 
         }
 
-        private void Signup_btn_Click_1(object sender, RoutedEventArgs e)
-        {
+       
 
-        }
-
-        private void Signup_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void Textboxsignup_Loaded_2(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Login_page_Click(object sender, RoutedEventArgs e)
+        {
+            int pass = 123;
+            string name = "hazem";
+            if (int.TryParse(Pass_txt_box.PasswordContent, out int passowrd))
+            {
+                if (passowrd == pass && name == Usr_name.Textcontent)
+                {
+                    MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Declined user", "Get out!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid format", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+               
+            }
+        }
+
+        private void Signup_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = new Signuppage();
         }
     }
     

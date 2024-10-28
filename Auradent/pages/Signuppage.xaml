@@ -7,7 +7,8 @@
         xmlns:userconrols ="clr-namespace:Auradent.View.Usercontrols"
       
       mc:Ignorable="d" 
-      Height="1080" Width="1920"
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Height="auto" Width="auto"
       Title="Signuppage">
 
     <Grid>

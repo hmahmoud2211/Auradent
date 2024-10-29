@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Green Professional Gradient Login Section Website UI Desktop Prototype %281%29.png" />
+    <None Remove="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Green Professional Gradient Login Section Website UI Desktop Prototype (1).png" />
+    <Resource Include="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
   </ItemGroup>
 
 </Project>

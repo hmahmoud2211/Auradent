@@ -51,7 +51,7 @@ namespace Auradent
                 if (passowrd == pass && name == Usr_name.Textcontent)
                 {
                     MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                   
+                    this.Content = new Dashboard();
                 }
                 else
                 {

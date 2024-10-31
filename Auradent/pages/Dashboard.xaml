@@ -52,6 +52,56 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="5.2*"/>
+                <RowDefinition Height="4.8*"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="494"/>
+                    <ColumnDefinition Width="494" />
+                    <ColumnDefinition Width="494"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <usercontrol:Button Margin="30,40,30,40">
+                        
+                    </usercontrol:Button>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <usercontrol:Button Margin="30,40,30,40" >
+                        
+                    </usercontrol:Button>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <usercontrol:Button Margin="30,40,30,40">
+                        
+                    </usercontrol:Button>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <usercontrol:Button Margin="30,40,30,40">
+                        
+                    </usercontrol:Button>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <usercontrol:Button Margin="30,40,30,40">
+                        
+                    </usercontrol:Button>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="2">
+                    <usercontrol:Button Margin="30,40,30,40">
+                        
+                    </usercontrol:Button>
+                </Grid>
+
+            </Grid>
+            
            
         </Grid>
         

@@ -21,8 +21,9 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        
 
+        <Grid Grid.Column="0">
+        </Grid>
         <!-- Main Content Area -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

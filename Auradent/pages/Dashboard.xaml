@@ -10,51 +10,59 @@
       Title="Dashboard">
 
     <Grid>
+        <!-- Background Image -->
         <Grid.Background >
             <ImageBrush ImageSource="/pages/Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png"/>
         </Grid.Background>
+
+        <!-- Grid Column Definitions -->
         <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="438"/>
-            <ColumnDefinition Width="1482"/>
+            <ColumnDefinition Width="438" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid x:Name="GridMenu" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="500"/>
-                <RowDefinition Height="180"/>
 
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" >
-                <Grid.Background>
-                    <ImageBrush ImageSource="/pages/withoutBackground.png" Stretch="Uniform"/>
-                </Grid.Background>
-            </Grid>
-            <Grid Grid.Row="1">
-                <StackPanel>
-                    <Label Content="Dr Osama Amer" FontSize="35" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Foreground="#D7EFFB" />
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Row="2">
-                <StackPanel>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="500">
-                        <StackPanel>
-                        <usercontrol:Button Margin="35,10,35,25" Height="50"/>
-                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
-                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
-                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
-                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
-                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
-                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
-                        </StackPanel>
-                    </ScrollViewer>
-                </StackPanel>    
-            </Grid>
-        </Grid>
-        <Grid Grid.Column="1">
-           
-        </Grid>
         
-    </Grid>
 
+        <!-- Main Content Area -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5.2*" />
+                <RowDefinition Height="4.8*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <!-- Dashboard Buttons with Reduced Sizes -->
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="2">
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
 </Page>

@@ -9,27 +9,27 @@
              d:DesignHeight="1080" d:DesignWidth="438">
     <Grid x:Name="GridMenu" Grid.Column="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="161*"/>
-            <RowDefinition Height="108*"/>
-            <RowDefinition Height="538*"/>
-            <RowDefinition Height="194*"/>
-
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="9*" />
         </Grid.RowDefinitions>
+
         <Grid Grid.Row="0" >
-            <usercontrol:Button Margin="30,3,360,100" Height="50"/>
+            <usercontrol:Button   Height="50" Width="50" HorizontalAlignment="Left" Margin="10"/>
             <Grid.Background>
-                <ImageBrush ImageSource="/pages/withoutBackground.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="C:\Users\chiristina\Source\Repos\Auradent\Auradent\pages\withoutBackground.png" Stretch="Uniform"/>
             </Grid.Background>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel>
-                <Label Content="Welcome Dr Osama" FontSize="27" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Foreground="#D7EFFB" />
-                <usercontrol:searchbar Margin="75,10,80,10" Height="45"/>
+                <Label Content="Welcome Dr Osama" Margin="0,0,0,10" FontSize="30" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Foreground="#D7EFFB" />
+                <usercontrol:searchbar Margin="35,0,55,0" Height="50"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel>
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="400">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="508">
                     <StackPanel>
                         <usercontrol:Button Margin="35,10,35,25" Height="50"/>
                         <usercontrol:Button Margin="35,25,35,25" Height="50"/>
@@ -43,7 +43,7 @@
         </Grid>
         <Grid Grid.Row="3">
             <StackPanel>
-                <usercontrol:Button Margin="250,130,30,80" Height="50"/>
+                <usercontrol:Button Margin="230,20,30,70" Height="50"/>
             </StackPanel>
         </Grid>
     </Grid>

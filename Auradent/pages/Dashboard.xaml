@@ -65,5 +65,8 @@
 
             </Grid>
         </Grid>
+        <Grid Grid.Column="0">
+            <usercontrol:menubar Height="auto" Width="auto"/>
+        </Grid>
     </Grid>
 </Page>

@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Auradent.View.Usercontrols"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="280">
+             d:DesignHeight="45" d:DesignWidth="280">
     <Grid>
-        <Border CornerRadius="20" Height="50" BorderBrush="Gray" BorderThickness="1" Padding="0"/>
+        <Border CornerRadius="15"  BorderBrush="Gray" BorderThickness="1" Padding="0"/>
         <TextBox x:Name="searchtxt" Text="Search here" VerticalContentAlignment="Center" FontSize="20" FontWeight="ExtraLight" Background="Transparent" Foreground="gray" BorderBrush="{x:Null}"/>
         <Button x:Name="clearbtn" Width="35" HorizontalAlignment="Right" Content="save" FontSize="17" FontWeight="ExtraLight" Background="Transparent" Foreground="gray" BorderThickness="1" BorderBrush="{x:Null}"/>
     </Grid>

@@ -17,13 +17,12 @@
 
         <!-- Grid Column Definitions -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="228*" />
-            <ColumnDefinition Width="772*" />
+            <ColumnDefinition Width="438" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
 
         <Grid Grid.Column="0">
-            <usercontrol:menubar Height="auto" Width="auto"/>
         </Grid>
         <!-- Main Content Area -->
         <Grid Grid.Column="1">

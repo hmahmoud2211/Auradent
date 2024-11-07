@@ -24,5 +24,10 @@ namespace Auradent.pages
         {
             InitializeComponent();
         }
+
+        private void menubar_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

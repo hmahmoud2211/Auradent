@@ -18,25 +18,29 @@
         <Grid Grid.Row="0" >
             <usercontrol:Button   Height="50" Width="50" HorizontalAlignment="Left" Margin="10"/>
             <Grid.Background>
-                <ImageBrush ImageSource="C:\Users\chiristina\Source\Repos\Auradent\Auradent\pages\withoutBackground.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="C:\Users\user\source\repos\Auradent\Auradent\pages\withoutBackground.png" Stretch="Uniform"/>
             </Grid.Background>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel>
                 <Label Content="Welcome Dr Osama" Margin="0,0,0,10" FontSize="30" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Foreground="#D7EFFB" />
-                <usercontrol:searchbar Margin="35,0,55,0"/>
+                <usercontrol:searchbar Margin="35,0,55,0" Height="50"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel>
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="508">
                     <StackPanel>
-                        <usercontrol:Button Margin="35,10,35,25" />
-                        <usercontrol:Button Margin="35,25,35,25" />
-                        <usercontrol:Button Margin="35,25,35,25" />
-                        <usercontrol:Button Margin="35,25,35,25" />
-                        <usercontrol:Button Margin="35,25,35,25" />
-                        <usercontrol:Button Margin="35,25,35,25" />
+                        <usercontrol:Button Margin="35,10,35,25" Height="50">
+                            <usercontrol:Button.Background>
+                                <ImageBrush ImageSource="/View/Usercontrols/DESIGN1.png" Stretch="Uniform"/>
+                            </usercontrol:Button.Background>
+                        </usercontrol:Button>
+                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
+                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
+                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
+                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
+                        <usercontrol:Button Margin="35,25,35,25" Height="50"/>
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>

@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Auradent.pages
+namespace Auradent.View.Usercontrols
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for searchbar.xaml
     /// </summary>
-    public partial class Dashboard : Page
+    public partial class searchbar : UserControl
     {
-        public Dashboard()
+        public searchbar()
         {
             InitializeComponent();
-        }
-
-        private void menubar_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Auradent.pages
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for Inventory.xaml
     /// </summary>
-    public partial class Dashboard : Page
+    public partial class Inventory : Page
     {
-        public Dashboard()
+        public Inventory()
         {
             InitializeComponent();
-        }
-
-        private void menubar_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

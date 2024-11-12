@@ -23,7 +23,7 @@
 
 
         <Grid Grid.Column="0">
-            <usercontrol:menubar Height="auto" Width="auto"/>
+            <usercontrol:menubar Height="auto" Width="auto" Loaded="menubar_Loaded"/>
         </Grid>
         <!-- Main Content Area -->
         <Grid Grid.Column="1">
@@ -46,7 +46,11 @@
 
                 <!-- Dashboard Buttons with Reduced Sizes -->
                 <Grid Grid.Row="0" Grid.Column="0">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
+                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" >
+                        <usercontrol:Button.Background>
+                            <ImageBrush ImageSource="/pages/Green and Orange Simple Medical Logo.png" Stretch="UniformToFill"/>
+                        </usercontrol:Button.Background>
+                    </usercontrol:Button>
                 </Grid>
                 <Grid Grid.Row="0" Grid.Column="1">
                     <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />

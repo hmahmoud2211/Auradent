@@ -13,31 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Auradent.pages
+namespace Auradent.View.Usercontrols
 {
     /// <summary>
-    /// Interaction logic for Signuppage.xaml
+    /// Interaction logic for searchbar.xaml
     /// </summary>
-    public partial class Signuppage : Page
+    public partial class searchbar : UserControl
     {
-        public Signuppage()
+        public searchbar()
         {
             InitializeComponent();
-        }
-
-        private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Textboxsignup_Loaded_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Signup_btn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new MainWindow();
         }
     }
 }

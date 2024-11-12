@@ -10,10 +10,26 @@
 
   <ItemGroup>
     <None Remove="Green Professional Gradient Login Section Website UI Desktop Prototype %281%29.png" />
+    <None Remove="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
+    <None Remove="pages\Designer.png" />
+    <None Remove="pages\Green and Orange Simple Medical Logo.png" />
+    <None Remove="pages\withoutBackground.png" />
+    <None Remove="View\Usercontrols\Artboard 1.png" />
+    <None Remove="View\Usercontrols\DESIGN1.png" />
+    <None Remove="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
+    <None Remove="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Green Professional Gradient Login Section Website UI Desktop Prototype (1).png" />
+    <Resource Include="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
+    <Resource Include="pages\Designer.png" />
+    <Resource Include="pages\Green and Orange Simple Medical Logo.png" />
+    <Resource Include="pages\withoutBackground.png" />
+    <Resource Include="View\Usercontrols\Artboard 1.png" />
+    <Resource Include="View\Usercontrols\DESIGN1.png" />
+    <Resource Include="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
+    <Resource Include="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
   </ItemGroup>
 
 </Project>

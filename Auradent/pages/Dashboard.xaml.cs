@@ -16,28 +16,18 @@ using System.Windows.Shapes;
 namespace Auradent.pages
 {
     /// <summary>
-    /// Interaction logic for Signuppage.xaml
+    /// Interaction logic for Dashboard.xaml
     /// </summary>
-    public partial class Signuppage : Page
+    public partial class Dashboard : Page
     {
-        public Signuppage()
+        public Dashboard()
         {
             InitializeComponent();
         }
 
-        private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)
+        private void menubar_Loaded(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void Textboxsignup_Loaded_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Signup_btn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new MainWindow();
         }
     }
 }

@@ -11,7 +11,7 @@
 
     <Grid>
         <!-- Background Image -->
-        <Grid.Background >
+        <Grid.Background>
             <ImageBrush ImageSource="/pages/Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png"/>
         </Grid.Background>
 
@@ -21,10 +21,11 @@
             <ColumnDefinition Width="772*" />
         </Grid.ColumnDefinitions>
 
-
+        <!-- Sidebar -->
         <Grid Grid.Column="0">
             <usercontrol:menubar Height="auto" Width="auto" Loaded="menubar_Loaded"/>
         </Grid>
+
         <!-- Main Content Area -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -32,7 +33,60 @@
                 <RowDefinition Height="4.8*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1">
+            <!-- Top Section: Welcome and Appointment Info -->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5.2*" />
+                    <RowDefinition Height="4.8*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="300,10,0,0">
+                        <!-- "Welcome Dr. Osama!!" Label with Border -->
+                        <Border BorderThickness="2" 
+                                BorderBrush="#4A90E2" 
+                                CornerRadius="10" 
+                                Background="White" 
+                                Padding="10" 
+                                Margin="0,0,0,20">
+                            <TextBlock Text="Welcome Dr. Osama!" 
+                                       FontSize="24" 
+                                       FontWeight="Bold" 
+                                       Foreground="#1A1A1D" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" />
+                        </Border>
+
+                        <!-- "Appointment dates" Label -->
+                        <TextBlock Text="Appointment dates" 
+                                   FontSize="20" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,10" />
+
+                        <!-- Buttons for Days of the Week -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                            <Button Content="Sun" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White" Click="Button_Click" Tag="0"/>
+                            <Button Content="Mon" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White" Click="Button_Click" Tag="1"/>
+                            <Button Content="Tue" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White" Click="Button_Click" Tag="2"/>
+                            <Button Content="Wed" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White" Click="Button_Click" Tag="3"/>
+                            <Button Content="Thu" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White" Click="Button_Click" Tag="4"/>
+                            <Button Content="Fri" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White"  Tag="5"/>
+                            <Button Content="Sat" Width="80" Height="40" Margin="5" Background="#4A90E2" Foreground="White"  Tag="6"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Patient Information Display Area -->
+                <Grid Grid.Row="1">
+                    <TextBlock x:Name="AppointmentInfo" Text="Select a day to view appointment details" 
+                               FontSize="16" 
+                               Foreground="#1A1A1D" 
+                               Margin="300,10,0,0" />
+                </Grid>
+            </Grid>
+
+            <!-- Bottom Section: Dashboard Buttons -->
+            <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -44,30 +98,13 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
 
-                <!-- Dashboard Buttons with Reduced Sizes -->
-                <Grid Grid.Row="0" Grid.Column="0">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" >
-                        <usercontrol:Button.Background>
-                            <ImageBrush ImageSource="/pages/Green and Orange Simple Medical Logo.png" Stretch="UniformToFill"/>
-                        </usercontrol:Button.Background>
-                    </usercontrol:Button>
-                </Grid>
-                <Grid Grid.Row="0" Grid.Column="1">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
-                </Grid>
-                <Grid Grid.Row="0" Grid.Column="2">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
-                </Grid>
-                <Grid Grid.Row="1" Grid.Column="0">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
-                </Grid>
-                <Grid Grid.Row="1" Grid.Column="1">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
-                </Grid>
-                <Grid Grid.Row="1" Grid.Column="2">
-                    <usercontrol:Button Margin="10,20,10,20" Width="280" Height="140" />
-                </Grid>
-
+                <!-- Placeholder buttons for other dashboard options -->
+                <usercontrol:Button Grid.Row="0" Grid.Column="0" Margin="10,20,10,20" Width="280" Height="140" />
+                <usercontrol:Button Grid.Row="0" Grid.Column="1" Margin="10,20,10,20" Width="280" Height="140" />
+                <usercontrol:Button Grid.Row="0" Grid.Column="2" Margin="10,20,10,20" Width="280" Height="140" />
+                <usercontrol:Button Grid.Row="1" Grid.Column="0" Margin="10,20,10,20" Width="280" Height="140" />
+                <usercontrol:Button Grid.Row="1" Grid.Column="1" Margin="10,20,10,20" Width="280" Height="140" />
+                <usercontrol:Button Grid.Row="1" Grid.Column="2" Margin="10,20,10,20" Width="280" Height="140" />
             </Grid>
         </Grid>
     </Grid>

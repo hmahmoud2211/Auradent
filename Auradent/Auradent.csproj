@@ -18,6 +18,7 @@
     <None Remove="View\Usercontrols\DESIGN1.png" />
     <None Remove="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
     <None Remove="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
+    <None Remove="View\Usercontrols\withoutBackground.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
     <Resource Include="View\Usercontrols\DESIGN1.png" />
     <Resource Include="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
     <Resource Include="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
+    <Resource Include="View\Usercontrols\withoutBackground.png" />
   </ItemGroup>
 
 </Project>

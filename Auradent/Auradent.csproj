@@ -12,26 +12,49 @@
     <None Remove="Green Professional Gradient Login Section Website UI Desktop Prototype %281%29.png" />
     <None Remove="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
     <None Remove="pages\Designer.png" />
+    <None Remove="pages\finance.png" />
     <None Remove="pages\Green and Orange Simple Medical Logo.png" />
+    <None Remove="pages\green black minimalist finance coin logo design %281%29.png" />
+    <None Remove="pages\green black minimalist finance coin logo design %282%29.png" />
+    <None Remove="pages\inventory.png" />
+    <None Remove="pages\treatment_plan.png" />
     <None Remove="pages\withoutBackground.png" />
+    <None Remove="View\Pic\Artboard 1.png" />
+    <None Remove="View\Pic\DESIGN1.png" />
+    <None Remove="View\Pic\green black minimalist finance coin logo design (3).png" />
+    <None Remove="View\Pic\rb_5856.png" />
+    <None Remove="View\Pic\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
     <None Remove="View\Usercontrols\Artboard 1.png" />
     <None Remove="View\Usercontrols\DESIGN1.png" />
+    <None Remove="View\Usercontrols\Green and Orange Simple Medical Logo %285%29.png" />
     <None Remove="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
+    <None Remove="View\Usercontrols\green black minimalist finance coin logo design %283%29.png" />
+    <None Remove="View\Usercontrols\rb_5856.png" />
     <None Remove="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
     <None Remove="View\Usercontrols\withoutBackground.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Green Professional Gradient Login Section Website UI Desktop Prototype (1).png" />
-    <Resource Include="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
-    <Resource Include="pages\Designer.png" />
-    <Resource Include="pages\Green and Orange Simple Medical Logo.png" />
-    <Resource Include="pages\withoutBackground.png" />
-    <Resource Include="View\Usercontrols\Artboard 1.png" />
-    <Resource Include="View\Usercontrols\DESIGN1.png" />
-    <Resource Include="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
-    <Resource Include="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
-    <Resource Include="View\Usercontrols\withoutBackground.png" />
+    <Resource Include="View\Pic\Artboard 1.png" />
+    <Resource Include="View\Pic\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
+    <Resource Include="View\Pic\DESIGN1.png" />
+    <Resource Include="View\Pic\Designer.png" />
+    <Resource Include="View\Pic\finance.png" />
+    <Resource Include="View\Pic\Green and Orange Simple Medical Logo.png" />
+    <Resource Include="View\Pic\green black minimalist finance coin logo design %281%29.png" />
+    <Resource Include="View\Pic\green black minimalist finance coin logo design %282%29.png" />
+    <Resource Include="View\Pic\green black minimalist finance coin logo design (3).png" />
+    <Resource Include="View\Pic\inventory.png" />
+    <Resource Include="View\Pic\rb_5856.png" />
+    <Resource Include="View\Pic\treatment_plan.png" />
+    <Resource Include="View\Pic\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
+    <Resource Include="View\Pic\withoutBackground.png" />
+    <Resource Include="View\Pic\Green and Orange Simple Medical Logo %285%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Windows\" />
   </ItemGroup>
 
 </Project>

@@ -18,7 +18,7 @@
         <Grid Grid.Row="0" >
             <usercontrol:Button   Height="50" Width="50" HorizontalAlignment="Left" Margin="10"/>
             <Grid.Background>
-                <ImageBrush ImageSource="withoutBackground.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="\View\Pic\withoutBackground.png" Stretch="Uniform"/>
             </Grid.Background>
         </Grid>
         <Grid Grid.Row="1">
@@ -31,11 +31,13 @@
             <StackPanel>
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="508">
                     <StackPanel>
-                        <usercontrol:Button Margin="35,10,35,25" Height="50">
-                            <usercontrol:Button.Background>
-                                <ImageBrush ImageSource="DESIGN1.png" Stretch="Uniform"/>
-                            </usercontrol:Button.Background>
-                        </usercontrol:Button>
+                        <Button Style="{StaticResource MenuButtonStyle}" Margin="35,25,35,25" Height="50">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="230" Height="35">
+                                <Image Source="\View\Pic\Green and Orange Simple Medical Logo (5).png" Width="50" Height="47" Stretch="Uniform" Margin="5,0,0,0" >
+                                </Image>
+                                <TextBlock Text="Medical Record" Foreground="White" FontSize="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
                         <usercontrol:Button Margin="35,25,35,25" Height="50"/>
                         <usercontrol:Button Margin="35,25,35,25" Height="50"/>
                         <usercontrol:Button Margin="35,25,35,25" Height="50"/>

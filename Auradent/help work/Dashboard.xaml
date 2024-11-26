@@ -8,11 +8,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Dashboard">
-
     <Grid>
         <!-- Background Image -->
         <Grid.Background>
-            <ImageBrush ImageSource="/pages/Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png"/>
+            <ImageBrush ImageSource="\View\Pic\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png"/>
         </Grid.Background>
 
         <!-- Grid Column Definitions -->
@@ -99,13 +98,39 @@
                 </Grid.RowDefinitions>
 
                 <!-- Placeholder buttons for other dashboard options -->
-                <usercontrol:Button Grid.Row="0" Grid.Column="0" Margin="10,20,10,20" Width="280" Height="140" />
-                <usercontrol:Button Grid.Row="0" Grid.Column="1" Margin="10,20,10,20" Width="280" Height="140" />
-                <usercontrol:Button Grid.Row="0" Grid.Column="2" Margin="10,20,10,20" Width="280" Height="140" />
-                <usercontrol:Button Grid.Row="1" Grid.Column="0" Margin="10,20,10,20" Width="280" Height="140" />
-                <usercontrol:Button Grid.Row="1" Grid.Column="1" Margin="10,20,10,20" Width="280" Height="140" />
-                <usercontrol:Button Grid.Row="1" Grid.Column="2" Margin="10,20,10,20" Width="280" Height="140" />
+                <usercontrol:Button Grid.Row="0" Grid.Column="0" Margin="10,20,10,20" Width="280" Height="140" >
+                    <usercontrol:Button.Background>
+                        <ImageBrush ImageSource="\View\Pic\Green and Orange Simple Medical Logo.png" Stretch="UniformToFill"/>
+                    </usercontrol:Button.Background>
+                </usercontrol:Button>
+                <usercontrol:Button Grid.Row="0" Grid.Column="1" Margin="10,20,10,20" Width="280" Height="140" >
+                    <usercontrol:Button.Background>
+                        <ImageBrush ImageSource="\View\Pic\finance.png" Stretch="UniformToFill"/>
+                    </usercontrol:Button.Background>
+                </usercontrol:Button>
+                <usercontrol:Button Grid.Row="0" Grid.Column="2" Margin="10,20,10,20" Width="280" Height="140" >
+                    <usercontrol:Button.Background>
+                        <ImageBrush ImageSource="\View\Pic\treatment_plan.png" Stretch="UniformToFill"/>
+                    </usercontrol:Button.Background>
+                </usercontrol:Button>
+                <usercontrol:Button Grid.Row="1" Grid.Column="0" Margin="10,20,10,20" Width="280" Height="140" >
+                    <usercontrol:Button.Background>
+                        <ImageBrush ImageSource="\View\Pic\inventory.png" Stretch="UniformToFill"/>
+                    </usercontrol:Button.Background>
+                </usercontrol:Button>
+                <usercontrol:Button Grid.Row="1" Grid.Column="1" Margin="10,20,10,20" Width="280" Height="140" >
+                    <usercontrol:Button.Background>
+                        <ImageBrush ImageSource="\View\Pic\green black minimalist finance coin logo design (1).png" Stretch="UniformToFill"/>
+                    </usercontrol:Button.Background>
+                </usercontrol:Button>
+                <usercontrol:Button Grid.Row="1" Grid.Column="2" Margin="10,20,10,20" Width="280" Height="140" >
+                    <usercontrol:Button.Background>
+                        <ImageBrush ImageSource="\View\Pic\green black minimalist finance coin logo design (2).png" Stretch="UniformToFill"/>
+                    </usercontrol:Button.Background>
+                </usercontrol:Button>
             </Grid>
         </Grid>
     </Grid>
+
+
 </Page>

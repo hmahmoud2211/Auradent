@@ -35,15 +35,15 @@
         </Grid.RowDefinitions>
         <Label Content="Connect the distance between" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" Margin="28,29,-28,56" Grid.RowSpan="6" Grid.ColumnSpan="2" />
         <Label Content="you and others!" Grid.Row ="1" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" Margin="32,13,-32,54" Grid.RowSpan="6" Grid.ColumnSpan="2" />
-        <Label Content="Sign up and create your account here." Grid.Row ="2" Grid.Column="2" FontSize="19" Foreground="#D7EFFB" Margin="34,40,-34,54" Grid.RowSpan="5" Grid.ColumnSpan="2" />
-        <userconrols:Textboxsignup Grid.Column="2" Grid.Row="4" Margin="32,42,41,88" Placeholder="First Name" Grid.RowSpan="2" Loaded="Textboxsignup_Loaded"/>
+        <Label Content="Forgot your password? Reset it here." Grid.Row ="2" Grid.Column="2" FontSize="19" Foreground="#D7EFFB" Margin="34,40,-34,54" Grid.RowSpan="5" Grid.ColumnSpan="2" />
+        <userconrols:Textboxsignup x:Name="Name_txt" Grid.Column="2" Grid.Row="4" Margin="32,42,41,88" Placeholder="First Name" Grid.RowSpan="2" Loaded="Textboxsignup_Loaded"/>
         <Label Content="First Name" Grid.Row="3" Grid.Column="2" Margin="34,43,99,13" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
-        <userconrols:Textboxsignup Grid.Column="3" Grid.Row="4" Margin="33,42,140,88" Placeholder="Last Name" Grid.RowSpan="2" Loaded="Textboxsignup_Loaded_1"/>
-        <Label Content="Last Name" Grid.Row="3" Grid.Column="3" Margin="39,42,245,14" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
-        <userconrols:Textboxsignup Grid.Column="2" Grid.Row="6" Margin="32,2,118,85" Placeholder="Username" Grid.ColumnSpan="2"/>
-        <Label Content="Create your Username" Grid.Row="5" Grid.Column="2" Margin="38,79,95,161" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
-        <userconrols:Passwordtxtbox Grid.Column="2" Grid.Row="7" Margin="32,10,118,50" Placeholder="Password" Grid.ColumnSpan="2"/>
-        <Label Content="Create your Password" Grid.Row="6" Grid.Column="2" Margin="38,121,95,128" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
+        <userconrols:Textboxsignup x:Name="ID_txt" Grid.Column="3" Grid.Row="4" Margin="33,42,140,88" Placeholder="Last Name" Grid.RowSpan="2" Loaded="Textboxsignup_Loaded_1"/>
+        <Label Content="Enter your ID " Grid.Row="3" Grid.Column="3" Margin="39,42,245,14" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
+        <userconrols:Textboxsignup x:Name="National_Id_txt" Grid.Column="2" Grid.Row="6" Margin="32,2,118,85" Placeholder="Username" Grid.ColumnSpan="2"/>
+        <Label Content="Enter your National ID" Grid.Row="5" Grid.Column="2" Margin="38,79,95,161" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
+        <userconrols:Passwordtxtbox x:Name="new_pass_txt" Grid.Column="2" Grid.Row="7" Margin="32,10,118,50" Placeholder="Password" Grid.ColumnSpan="2"/>
+        <Label Content="Enter your new Password" Grid.Row="6" Grid.Column="2" Margin="38,121,95,128" FontSize="17" Foreground="#D7EFFB" Grid.RowSpan="2"/>
         <Border CornerRadius="20" BorderBrush="Gray" BorderThickness="1" Padding="0" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Margin="32,145,118,37" Grid.RowSpan="2">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -51,7 +51,7 @@
                     <GradientStop Color="#FF7BD2FF" Offset="0.997"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Button x:Name="Signup_btn" Content="Sign Up" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+            <Button x:Name="Signup_btn" Content="Log in" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
              Grid.Row="8" Grid.Column="2" BorderThickness="0" Padding="10,5,10,5" Click="Signup_btn_Click" FontSize="35" Background="Transparent" BorderBrush="{x:Null}" />
         </Border>
 

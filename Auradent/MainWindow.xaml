@@ -41,8 +41,8 @@
         
         <Label Content="you and others!" Grid.Row="1" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
                Margin="32,13,-32,54" Grid.RowSpan="6" Grid.ColumnSpan="2" />
-        
-        <Label Content="Sign up and create your account here." Grid.Row="2" Grid.Column="2" FontSize="19" 
+
+        <Label Content="Login to access your account." Grid.Row="2" Grid.Column="2" FontSize="19" 
                Foreground="#D7EFFB" Margin="34,40,-34,54" Grid.RowSpan="5" Grid.ColumnSpan="2" />
 
         <!-- Username Input -->
@@ -68,8 +68,8 @@
                     <GradientStop Color="#FF96AEBA" Offset="0.997" />
                 </LinearGradientBrush>
             </Border.Background>
-            <Button x:Name="Signup_btn" Content="Sign Up" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
-                    BorderThickness="0" Padding="10,5,10,5" Click="Signup_btn_Click" FontSize="35" 
+            <Button x:Name="Signup_btn" Content="Forgot Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                    BorderThickness="0" Padding="10,5,10,5" Click="Signup_btn_Click" FontSize="23" FontWeight="SemiBold"
                     Background="Transparent" BorderBrush="{x:Null}" />
         </Border>
 

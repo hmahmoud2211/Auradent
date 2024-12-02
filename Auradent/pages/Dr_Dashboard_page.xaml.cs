@@ -1,4 +1,5 @@
 ﻿using Auradent.View.Usercontrols;
+using Auradent.Windows;
 using Auradent.Windows.Clinic_Finance;
 using System;
 using System.Collections.Generic;
@@ -49,13 +50,25 @@ namespace Auradent.pages
         {
             MainWindow newmainWindow = new MainWindow
             {
-                Title = "New Window",
+                Title = "Finance",
                 WindowState = WindowState.Maximized // Optional: Open the window maximized
             };
 
             // Show the new window
             newmainWindow.Show();
             Window.GetWindow(this)?.Close();
+        }
+
+        private void appointment(object sender, RoutedEventArgs e)
+        {
+            MedicalRecord newWindow = new MedicalRecord
+            {
+                Title = "Medical Record",
+                WindowState = WindowState.Normal // Optional: Open the window maximized
+            };
+
+            // Show the new window
+            newWindow.Show();
         }
     }
 }

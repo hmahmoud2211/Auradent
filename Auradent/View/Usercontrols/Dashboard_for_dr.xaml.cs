@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using Auradent.Windows;
+using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
@@ -92,6 +93,18 @@ namespace Auradent.View.Usercontrols
             DataContext = this;
             string imgCartoon = $"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.ToString()}\\Images\\cartoon-woman-pretty.png";
             string imgavatar = $"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.ToString()}\\Images\\avatar1.jpg";
+
+        }
+
+        private void Recent_patient_1(object sender, RoutedEventArgs e)
+        {
+            IntegRatedPatient secondWindow = new IntegRatedPatient();
+            secondWindow.Show();
+            Window currentWindow = Window.GetWindow(this);
+            if (currentWindow != null)
+            {
+                currentWindow.Close();
+            }
 
         }
     }

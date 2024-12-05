@@ -26,7 +26,7 @@
                     <ListView Margin="0 15">
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" 
-                                 BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" >
+                                 BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="Search_btn" >
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="Search"/>
                                 </StackPanel>
@@ -42,7 +42,7 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" 
-          BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" >
+          BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="appointment" >
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
                                 </StackPanel>

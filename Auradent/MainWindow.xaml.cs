@@ -1,4 +1,6 @@
 ﻿using Auradent.pages;
+using Auradent.Windows.Clinic_Finance;
+using Auradent.Windows.patient_finance;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,8 +52,9 @@ namespace Auradent
             {
                 if (passowrd == pass && name == Usr_name.Textcontent)
                 {
-                    MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Content = new Dashboard();
+                    Clinic_Finance secondWindow = new Clinic_Finance();
+                    secondWindow.Show();
+                    this.Close();
                 }
                 else
                 {

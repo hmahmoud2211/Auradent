@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="OxyPlot.Wpf" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Green Professional Gradient Login Section Website UI Desktop Prototype (1).png" />
     <Resource Include="View\Pic\Artboard 1.png" />
     <Resource Include="View\Pic\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
@@ -48,13 +52,8 @@
     <Resource Include="View\Pic\inventory.png" />
     <Resource Include="View\Pic\rb_5856.png" />
     <Resource Include="View\Pic\treatment_plan.png" />
-    <Resource Include="View\Pic\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
     <Resource Include="View\Pic\withoutBackground.png" />
     <Resource Include="View\Pic\Green and Orange Simple Medical Logo %285%29.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Windows\" />
   </ItemGroup>
 
 </Project>

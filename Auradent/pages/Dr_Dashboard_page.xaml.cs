@@ -34,7 +34,7 @@ namespace Auradent.pages
             RenderPages.Children.Add(new Dashboard_for_dr());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Finance_page(object sender, RoutedEventArgs e)
         {
             Clinic_Finance newWindow = new Clinic_Finance
             {

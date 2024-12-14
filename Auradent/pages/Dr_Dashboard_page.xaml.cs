@@ -51,7 +51,7 @@ namespace Auradent.pages
             MainWindow newmainWindow = new MainWindow
             {
                 Title = "Finance",
-                WindowState = WindowState.Maximized // Optional: Open the window maximized
+                WindowState = WindowState.Maximized 
             };
 
             // Show the new window
@@ -61,10 +61,10 @@ namespace Auradent.pages
 
         private void appointment(object sender, RoutedEventArgs e)
         {
-            MedicalRecord newWindow = new MedicalRecord
+            Nurse_s_dashboard newWindow = new Nurse_s_dashboard
             {
                 Title = "Medical Record",
-                WindowState = WindowState.Normal // Optional: Open the window maximized
+                WindowState = WindowState.Normal 
             };
 
             // Show the new window

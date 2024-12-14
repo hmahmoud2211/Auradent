@@ -50,7 +50,7 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" 
-          BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="Button_Click">
+          BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="Finance_page">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="Finance"/>
                                 </StackPanel>

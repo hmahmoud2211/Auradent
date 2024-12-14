@@ -41,7 +41,9 @@
                     <Border BorderBrush="White" BorderThickness="5" Margin=" 20" CornerRadius="15">
                         <materialDesign:Card UniformCornerRadius="15" BorderThickness="5"
                                              BorderBrush="White" Width="110" Height="140" Background="#F6F6F8">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" BorderBrush="{x:Null}" Background="{x:Null}" Width="110" Height="140" Margin ="-5,-5,-5,-5" Click="Upcoming_patient1">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" BorderBrush="{x:Null}" Background="{x:Null}" Width="110" Height="140" Margin ="-5,-5,-5,-5" Click="Recent_patient_1">
+
                             <StackPanel Width="110" Height="140" Background="{x:Null}">
                                 <materialDesign:PackIcon Kind="Timelapse" Foreground="#29A3EC" Margin="12 10 0 0" />
                                 <TextBlock FontWeight="SemiBold" FontSize="20" Text="Biko" Margin="5 10 0 0" Foreground="Black" />

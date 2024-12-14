@@ -91,7 +91,7 @@ namespace Auradent.View.Usercontrols
             Labels = new[] { "Feb 7", "Feb 8", "Feb 9", "Feb 10" };
             Formatter = value => value.ToString();
             DataContext = this;
-            
+
 
         }
 
@@ -101,17 +101,18 @@ namespace Auradent.View.Usercontrols
             IntegRatedPatient secondWindow = new IntegRatedPatient();
             secondWindow.Show();
             Window.GetWindow(this).Close();
-        private void Recent_patient_1(object sender, RoutedEventArgs e)
-        {
-            IntegRatedPatient secondWindow = new IntegRatedPatient();
-            secondWindow.Show();
-            Window currentWindow = Window.GetWindow(this);
-            if (currentWindow != null)
+             void Recent_patient_1(object sender, RoutedEventArgs e)
             {
-                currentWindow.Close();
+                IntegRatedPatient secondWindow = new IntegRatedPatient();
+                secondWindow.Show();
+                Window currentWindow = Window.GetWindow(this);
+                if (currentWindow != null)
+                {
+                    currentWindow.Close();
+                }
+
+
             }
-
-
         }
     }
-    }
+}

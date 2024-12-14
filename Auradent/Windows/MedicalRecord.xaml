@@ -190,8 +190,8 @@
                     <!--Pink Buttom-->
                     <Button Style="{StaticResource pinkButton}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Improve your skill" Margin="0 0 15 1"/>
-                            <fa:ImageAwesome Icon="plug" Width="10" Foreground="#ffffff"/>
+                            <TextBlock Text="Scan" Margin="0 0 15 1"/>
+                            <fa:ImageAwesome Icon="SearchPlus" Width="15" Foreground="#ffffff"/>
                         </StackPanel>
                     </Button>
 
@@ -199,7 +199,7 @@
                     <StackPanel Margin="20 60 20 40">
                         <!--Title-->
                         <Grid>
-                            <TextBlock Text="My teammates" Foreground="#787c86" FontSize="18" FontWeight="SemiBold"/>
+                            <TextBlock Text="Medical History" Foreground="#787c86" FontSize="18" FontWeight="SemiBold"/>
 
                             <Border Background="#787c86" CornerRadius="50" Width="25" Height="25" HorizontalAlignment="Right">
                                 <fa:ImageAwesome Icon="play" Foreground="#ffffff" Width="7" Height="7" Margin="2 0 0 0"/>
@@ -209,9 +209,9 @@
                         <Separator Foreground="#787c86" Height="0.7" Margin="0 10 0 10"/>
 
                         <!--Team-->
-                        <usercontrol:Teammates TeammatesTitle="Kaim Ballard" Num="87" />
-                        <usercontrol:Teammates TeammatesTitle="Kaim Ballard" Num="87" />
-                        <usercontrol:Teammates TeammatesTitle="Kaim Ballard" Num="87" />
+                        <usercontrol:Teammates TeammatesTitle="Previous Diagnoses" Num="0" />
+                        <usercontrol:Teammates TeammatesTitle="Past Treatments" Num="0" />
+                        <usercontrol:Teammates TeammatesTitle="Family Medical History" Num="0" />
                     </StackPanel>
 
                     <!--Skill Section-->
@@ -221,7 +221,7 @@
 
 
 
-                            <TextBlock Text="Your main Skilllist" Style="{StaticResource title}" Margin="0 0 60 0"/>
+                            <TextBlock Text="Laboratory and Test Results" Style="{StaticResource title}" Margin="0 0 0 0"/>
                             <TextBlock Style="{StaticResource desc}">
                                 <Run>You improved it by</Run>
                                 <Run Foreground="#e37c91"> 12 points</Run>
@@ -262,7 +262,7 @@
                     <Border Background="#ffffff" Grid.Column="2" Grid.Row="1" Padding="30 20 30 0" CornerRadius="20" Margin="20 -60 20 40">
                         <StackPanel>
                             <!--Title-->
-                            <TextBlock Text="Next lessons" Style="{StaticResource title}"/>
+                            <TextBlock Text="Diagnoses" Style="{StaticResource title}"/>
                             <TextBlock Style="{StaticResource desc}">
                                 <Run>You will need</Run>
                                 <Run Foreground="#e37c91"> 4.5 hours</Run>

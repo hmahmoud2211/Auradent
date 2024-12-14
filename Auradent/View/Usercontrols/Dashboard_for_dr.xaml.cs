@@ -95,11 +95,23 @@ namespace Auradent.View.Usercontrols
 
         }
 
+
         private void Upcoming_patient1(object sender, RoutedEventArgs e)
         {
             IntegRatedPatient secondWindow = new IntegRatedPatient();
             secondWindow.Show();
             Window.GetWindow(this).Close();
+        private void Recent_patient_1(object sender, RoutedEventArgs e)
+        {
+            IntegRatedPatient secondWindow = new IntegRatedPatient();
+            secondWindow.Show();
+            Window currentWindow = Window.GetWindow(this);
+            if (currentWindow != null)
+            {
+                currentWindow.Close();
+            }
+
+
         }
     }
     }

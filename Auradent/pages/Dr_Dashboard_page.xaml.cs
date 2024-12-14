@@ -63,12 +63,17 @@ namespace Auradent.pages
         {
             Nurse_s_dashboard newWindow = new Nurse_s_dashboard
             {
-                Title = "Medical Record",
-                WindowState = WindowState.Normal 
+                Title = "Appointment",
+                WindowState = WindowState.Normal // Optional: Open the window maximized
             };
 
             // Show the new window
             newWindow.Show();
+        }
+
+        private void Search_btn(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

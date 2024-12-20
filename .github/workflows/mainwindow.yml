@@ -23,7 +23,7 @@ jobs:
         run: dotnet restore Auradent.sln  # Specify the path to your .sln file
 
       - name: Build Project
-        run: dotnet build Auradent/Auradent.sln --configuration Release
+        run: dotnet build Auradent.sln --configuration Release
 
       - name: Run Tests
         run: dotnet test MainWindowTests.cs --configuration Release --no-build --verbosity normal

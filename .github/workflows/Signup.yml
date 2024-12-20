@@ -1,0 +1,29 @@
+name: .NET Core CI with xUnit
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Install Dependencies
+        run: dotnet restore Auradent.sln  # Specify the path to your .sln file
+
+      - name: Build Project
+        run: dotnet build Auradent.sln --configuration Release
+
+      - name: Run Tests
+        run: dotnet test SignuppageTests.cs --configuration Release --no-build --verbosity normal

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Auradent.core;
+using Auradent.Data;
 using MySql.Data.MySqlClient;
 
 namespace Auradent.pages
@@ -21,10 +23,12 @@ namespace Auradent.pages
     /// </summary>
     public partial class Signuppage : Page
     {
-        private readonly string connectionString = "Server=localhost;Database=Auradent;Uid=root;Pwd=Hazem@2003;";
+        private IdataHelper<DoctorandNurse> dataHelperEmployee;
+
         public Signuppage()
         {
             InitializeComponent();
+            dataHelperEmployee = new DoctorandNurseEF();
         }
 
         private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)
@@ -39,78 +43,61 @@ namespace Auradent.pages
 
         private void Signup_btn_Click(object sender, RoutedEventArgs e)
         {
-           
+            try
             {
-                try
-                {
-                    // Parse user input
-                    int enteredUserid = int.Parse(ID_txt.Textcontent); // Use Text for TextBox
-                    long enteredUserNationalID = long.Parse(National_Id_txt.Textcontent); // Use Text for TextBox
-                    string enteredPassword = new_pass_txt.PasswordContent; // Use Password for PasswordBox
+                // Retrieve user input
+                int enteredUserid = int.Parse(ID_txt.Textcontent); // Use Text for TextBox
+                string enteredUserNationalID = National_Id_txt.Textcontent; // Use Text for TextBox
+                string enteredPassword = new_pass_txt.PasswordContent;
 
-                    // Connect to the database
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+
+                var user = dataHelperEmployee.GetAllData().FirstOrDefault(u => u.ID == enteredUserid && u.Nationa_ID == enteredUserNationalID);
+
+                if (user != null)
+                {
+                    // update the password with the new password
+                    dataHelperEmployee.Update(new DoctorandNurse
                     {
-                        connection.Open();
+                        ID = user.ID,
+                        Username = user.Username,
+                        Password = enteredPassword,
+                        Role = user.Role,
+                        Nationa_ID = user.Nationa_ID,
+                        Appointments = user.Appointments,
+                        Prescriptions = user.Prescriptions
+                    });
+                    MessageBox.Show("Password changed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MainWindow newmainWindow = new MainWindow
+                    {
+                        Title = "Finance",
+                        WindowState = WindowState.Maximized
+                    };
 
-                        // Check if the user exists
-                        string query = "SELECT COUNT(*) FROM Security WHERE Doctor_ID = @Userid AND National_ID = @UsernationalID";
-                        MySqlCommand command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@Userid", enteredUserid);
-                        command.Parameters.AddWithValue("@UsernationalID", enteredUserNationalID);
-
-                        int userExists = Convert.ToInt32(command.ExecuteScalar());
-
-                        if (userExists > 0)
-                        {
-                            // Update the user's password
-                            string query_2 = "UPDATE Security SET Password = @newPassword WHERE National_ID = @UsernationalID";
-                            MySqlCommand command2 = new MySqlCommand(query_2, connection);
-                            command2.Parameters.AddWithValue("@newPassword", enteredPassword);
-                            command2.Parameters.AddWithValue("@UsernationalID", enteredUserNationalID);
-
-                            int update = command2.ExecuteNonQuery();
-
-                            if (update > 0)
-                            {
-                                MessageBox.Show("Password has been updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                                // Navigate to MainWindow
-                                MainWindow newMainWindow = new MainWindow
-                                {
-                                    Title = "New Window",
-                                    WindowState = WindowState.Maximized // Open maximized
-                                };
-                                newMainWindow.Show();
-
-                                // Close the current window
-                                Window.GetWindow(this)?.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to update the password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid User ID or National ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
+                    // Show the new window
+                    newmainWindow.Show();
+                    Window.GetWindow(this)?.Close();
                 }
-                catch (FormatException)
+                else
                 {
-                    MessageBox.Show("Please enter valid numeric values for User ID and National ID.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Invalid ID or National ID", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
+
                 }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+
+
+
             }
-            
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid numeric values for User ID and National ID.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

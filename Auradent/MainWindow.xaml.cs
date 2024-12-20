@@ -76,7 +76,7 @@ namespace Auradent
             }
             else
             {
-                MessageBox.Show("Invalid Username or Password", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Invalid Username or Password !", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
         }

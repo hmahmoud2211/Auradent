@@ -26,4 +26,4 @@ jobs:
         run: dotnet build Auradent.sln --configuration Release
 
       - name: Run Tests
-        run: dotnet test MainWindowTests.cs --configuration Release --no-build --verbosity normal
+        run: dotnet MainWindowTests.cs Auradent.Tests.csproj --configuration Release --no-build --verbosity normal

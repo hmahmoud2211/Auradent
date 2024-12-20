@@ -1,4 +1,4 @@
-﻿using Auradent.core;
+using Auradent.core;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.EntityFrameworkCore.Infrastructure;
 using System;
@@ -77,3 +77,4 @@ namespace Auradent.Data
         }
     }
 }
+

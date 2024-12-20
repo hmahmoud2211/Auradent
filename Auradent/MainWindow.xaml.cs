@@ -21,7 +21,16 @@ namespace Auradent
         public MainWindow()
         {
             InitializeComponent();
-            dataHelperEmployee = new EmployeeEF();
+            dataHelperEmployee = new DoctorandNurseEF();
+            DoctorandNurse login_data = new DoctorandNurse
+            {
+                ID = 1,
+                Username = "hazem",
+                Password = "123",
+                Role = "doctor",
+                Nationa_ID = "30309290113038"
+            };
+            _=dataHelperEmployee.Add(login_data);
         }
 
         private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)

@@ -16,7 +16,7 @@ namespace Auradent
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IdataHelper<DoctorandNurse> dataHelperEmployee;
+        private IdataHelper<Employee> dataHelperEmployee;
 
         public MainWindow()
         {
@@ -30,10 +30,8 @@ namespace Auradent
                 Role = "doctor",
                 Nationa_ID = "30309290113038"
             };
-            if(!dataHelperEmployee.CheckIfIdExists(1))
-                dataHelperEmployee.Add(login_data);
+            _=dataHelperEmployee.Add(login_data);
         }
-
 
         private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)
         {
@@ -49,18 +47,22 @@ namespace Auradent
 
         private void Login_page_Click(object sender, RoutedEventArgs e)
         {
-            //make a new instance of the login data and fill it with the vertual data not from the user
-
-
+            var login_data = new Employee
+            {
+                Username = "hazem",
+                Password = "123",
+                Role = "Doctor",
+                Nationa_ID = ""
+            };
             // insert the login data in the database
-            // check if the the username exist in the database
-            
-
+            dataHelperEmployee.InsertData(login_data);
             string enteredUsername = Usr_name.Textcontent;
             string enteredPassword = Pass_txt_box.PasswordContent;
-            var user = dataHelperEmployee.GetAllData().FirstOrDefault(u => u.Username == enteredUsername && u.Password == enteredPassword);
-                
-            if (user != null)
+
+            // read from the database and check if the username = enteredUsername and password = enteredPassword
+            // if true, then open the Dr_Dashboard_page 
+            // else, show an error message
+            if (enteredUsername == login_data.Username && enteredPassword == login_data.Password)
             {
 
                 Window pageWindow = new Window
@@ -76,7 +78,7 @@ namespace Auradent
             }
             else
             {
-                MessageBox.Show("Invalid Username or Password", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Invalid username or password");
 
             }
         }

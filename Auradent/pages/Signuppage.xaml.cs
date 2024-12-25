@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Auradent.core;
 using Auradent.Data;
+using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
 namespace Auradent.pages
@@ -28,7 +29,12 @@ namespace Auradent.pages
         public Signuppage()
         {
             InitializeComponent();
-            dataHelperEmployee = new DoctorandNurseEF();
+            var services = ((App)Application.Current).Services;
+            if (services == null)
+            {
+                throw new InvalidOperationException("Service provider is not initialized.");
+            }
+            dataHelperEmployee = services.GetService<IdataHelper<DoctorandNurse>>() ?? throw new InvalidOperationException("Data helper service is not available.");
         }
 
         private void Textboxsignup_Loaded(object sender, RoutedEventArgs e)
@@ -69,7 +75,7 @@ namespace Auradent.pages
                     MessageBox.Show("Password changed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainWindow newmainWindow = new MainWindow
                     {
-                        Title = "Finance",
+                        Title = "Login Page",
                         WindowState = WindowState.Maximized
                     };
 
@@ -98,6 +104,18 @@ namespace Auradent.pages
             {
                 MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void BackButton(object sender, RoutedEventArgs e)
+        {
+            MainWindow newmainWindow = new MainWindow
+            {
+                Title = "Finance",
+                WindowState = WindowState.Maximized
+            };
+
+            // Show the new window
+            newmainWindow.Show();
         }
     }
 }

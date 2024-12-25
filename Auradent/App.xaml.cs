@@ -26,9 +26,12 @@ namespace Auradent
             // Register EF classes
             services.AddScoped<IdataHelper<Appointment>, AppointmentEF>();
             services.AddScoped<IdataHelper<DoctorandNurse>, DoctorandNurseEF>();
-
-
-
+            services.AddScoped<IdataHelper<Patient>, PatientEF>();
+            services.AddScoped<IdataHelper<Prescription>, PrescriptionEF>();
+            services.AddScoped<IdataHelper<Finance>, FinanceEF>();
+            services.AddScoped<IdataHelper<Medicine>, MedicineEF>();
+            services.AddScoped<IdataHelper<Medical_Record>, Medical_RecordEF>();
+            services.AddScoped<IdataHelper<RadiologyORtest>, RadiologyEF>();
 
 
             Services = services.BuildServiceProvider();

@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using MySql.Data.MySqlClient;
 using Auradent.Data;
 using Auradent.core;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Auradent
 {
@@ -21,7 +22,12 @@ namespace Auradent
         public MainWindow()
         {
             InitializeComponent();
-            dataHelperEmployee = new DoctorandNurseEF();
+            var services = ((App)Application.Current).Services;
+            if (services == null)
+            {
+                throw new InvalidOperationException("Service provider is not initialized.");
+            }
+            dataHelperEmployee = services.GetService<IdataHelper<DoctorandNurse>>() ?? throw new InvalidOperationException("Data helper service is not available.");
             DoctorandNurse login_data = new DoctorandNurse
             {
                 ID = 1,

@@ -188,7 +188,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!--Pink Buttom-->
-                    <Button Style="{StaticResource pinkButton}">
+                    <Button Style="{StaticResource pinkButton}" Click="Button_Click_1">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Scan" Margin="0 0 15 1"/>
                             <fa:ImageAwesome Icon="SearchPlus" Width="15" Foreground="#ffffff"/>

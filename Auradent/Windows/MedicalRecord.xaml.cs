@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Auradent.Windows
 {
@@ -26,6 +28,24 @@ namespace Auradent.Windows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Create an OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a Photo",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+            };
+
+            // Show the dialog and check if the user selected a file
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Load the selected image into the Image control
+                BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
+
+            }
         }
     }
 }

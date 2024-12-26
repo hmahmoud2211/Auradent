@@ -101,7 +101,7 @@
                         <!--User Image-->
                         <Ellipse Width="45" Height="45" Margin="15 0 7 0" Grid.Column="1">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent4\Auradent\rb_5856.png"/>
+                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_fina_Ripo\Auradent\rb_5856.png"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
@@ -390,7 +390,7 @@
                         <!--Patient Image-->
                         <Border CornerRadius="10" Height="125" Margin="25 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent4\Auradent\rb_5856.png" />
+                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_fina_Ripo\Auradent\rb_5856.png" />
                             </Border.Background>
                         </Border>
 

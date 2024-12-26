@@ -1,7 +1,10 @@
-﻿using Auradent.Windows;
+﻿using Auradent.core;
+using Auradent.Data;
+using Auradent.Windows;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,73 +29,33 @@ namespace Auradent.View.Usercontrols
     public partial class Dashboard_for_dr : UserControl
     {
         public SeriesCollection SeriesCollection { get; set; }
-        public SeriesCollection LastHourSeries { get; set; }
-        public SeriesCollection LastHourSeries1 { get; set; }
+        private IdataHelper<Patient> dataHelperEmployee;
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
         public Dashboard_for_dr()
         {
             InitializeComponent();
-            SeriesCollection = new SeriesCollection
+            var services = ((App)Application.Current).Services;
+            if (services == null)
             {
-                new StackedColumnSeries
-                {
-                    Values = new ChartValues<double> {25,52,61,89},
-                    StackMode = StackMode.Values,
-                    DataLabels = true
-                },
-                 new StackedColumnSeries
-                {
-                    Values = new ChartValues<double> {-15,-75,-16,-49},
-                    StackMode = StackMode.Values,
-                    DataLabels = true
-                }
-            };
-            LastHourSeries = new SeriesCollection
-            {
-                new LineSeries
-                {
-                    AreaLimit = -10,
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(3),
-                        new ObservableValue(1),
-                        new ObservableValue(9),
-                        new ObservableValue(4),
-                        new ObservableValue(5),
-                        new ObservableValue(3),
-                        new ObservableValue(1),
-                        new ObservableValue(2),
-                        new ObservableValue(3),
-                        new ObservableValue(7),
-                    }
-                }
-            };
-            LastHourSeries1 = new SeriesCollection
-            {
-                new LineSeries
-                {
-                    AreaLimit = -10,
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(13),
-                        new ObservableValue(11),
-                        new ObservableValue(9),
-                        new ObservableValue(14),
-                        new ObservableValue(5),
-                        new ObservableValue(3),
-                        new ObservableValue(12),
-                        new ObservableValue(2),
-                        new ObservableValue(3),
-                        new ObservableValue(7),
-                    }
-                }
-            };
-            Labels = new[] { "Feb 7", "Feb 8", "Feb 9", "Feb 10" };
-            Formatter = value => value.ToString();
-            DataContext = this;
+                throw new InvalidOperationException("Service provider is not initialized.");
+            }
+            dataHelperEmployee = services.GetService<IdataHelper<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available.");
 
+            Patient patient = new Patient
+            {
+                PatientID = 1,
+                PatientName = "Biko",
+                PatientAddress = "Cairo",
+                PatientPhone = "01027120213",
+                DateOfBirth = new DateTime(1999, 12, 12),
+                Gender = "male",
+                chronic_diseases = "none",
 
+            };
+            if (!dataHelperEmployee.CheckIfIdExists(1))
+                dataHelperEmployee.Add(patient);
+            this.First_patient.Text = patient.PatientName;
         }
 
 
@@ -101,7 +64,7 @@ namespace Auradent.View.Usercontrols
             IntegRatedPatient secondWindow = new IntegRatedPatient();
             secondWindow.Show();
             Window.GetWindow(this).Close();
-             void Recent_patient_1(object sender, RoutedEventArgs e)
+            void Recent_patient_1(object sender, RoutedEventArgs e)
             {
                 IntegRatedPatient secondWindow = new IntegRatedPatient();
                 secondWindow.Show();

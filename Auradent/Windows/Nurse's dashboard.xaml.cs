@@ -20,43 +20,6 @@ namespace Auradent.Windows
             }
         }
 
-        private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            txtNote.Focus();
-        }
-
-
-        private void txtNote_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtNote.Text) && txtNote.Text.Length > 0)
-            {
-                lblNote.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                lblNote.Visibility = Visibility.Visible;
-            }
-
-        }
-
-        private void lblTime_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            txtTime.Focus();
-        }
-        private void txtTime_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtTime.Text) && txtTime.Text.Length > 0)
-            {
-                lblTime.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                lblTime.Visibility = Visibility.Visible;
-            }
-
-
-        }
-
         private void Item_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -70,6 +33,12 @@ namespace Auradent.Windows
         private void Back_btn(object sender, RoutedEventArgs e)
         {
             MainWindow secondWindow = new MainWindow();
+            secondWindow.Show();
+        }
+
+        private void new_patient(object sender, RoutedEventArgs e)
+        {
+            NewPatient secondWindow = new NewPatient();
             secondWindow.Show();
         }
     }

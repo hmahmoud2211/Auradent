@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Auradent.UserControls
+namespace Auradent.View.Usercontrols
 {
     /// <summary>
     /// Interaction logic for MenuButton.xaml

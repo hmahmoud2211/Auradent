@@ -69,15 +69,12 @@ namespace Auradent
             if (user != null)
             {
 
-                Window pageWindow = new Window
+                newdoctordashboard newdoctordashboard = new newdoctordashboard
                 {
-                    Title = "Page Window",
+                    Title = "Doctor Dashboard",
                     WindowState = WindowState.Maximized
                 };
-                Frame frame = new Frame();
-                frame.Navigate(new Uri("\\pages\\Dr_Dashboard_page.xaml", UriKind.Relative));
-                pageWindow.Content = frame;
-                pageWindow.Show();
+                newdoctordashboard.Show();
                 this.Close();
             }
             else

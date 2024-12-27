@@ -30,7 +30,7 @@ namespace Auradent.Windows
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Scan_Btn(object sender, RoutedEventArgs e)
         {
             // Create an OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -46,6 +46,7 @@ namespace Auradent.Windows
                 BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
 
             }
+
         }
     }
 }

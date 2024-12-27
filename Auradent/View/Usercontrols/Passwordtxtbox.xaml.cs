@@ -29,7 +29,8 @@ namespace Auradent.View.Usercontrols
         public string Placeholder
         {
             get { return placeholder; }
-            set { 
+            set
+            {
                 placeholder = value;
                 tbplaceholder.Text = placeholder;
             }
@@ -46,6 +47,38 @@ namespace Auradent.View.Usercontrols
             else
             {
                 tbplaceholder.Visibility = Visibility.Hidden;
+            }
+            if (PasswordTextBox.Visibility == Visibility.Visible)
+            {
+                PasswordTextBox.Text = pass_txt.Password;
+            }
+        }
+
+        private void TogglePasswordVisibility_Click(object sender, RoutedEventArgs e)
+        {
+            if (pass_txt.Visibility == Visibility.Visible)
+            {
+                // Show password
+                PasswordTextBox.Text = pass_txt.Password;
+                pass_txt.Visibility = Visibility.Collapsed;
+                PasswordTextBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // Hide password
+                pass_txt.Password = PasswordTextBox.Text;
+                PasswordTextBox.Visibility = Visibility.Collapsed;
+                pass_txt.Visibility = Visibility.Visible;
+            }
+        }
+
+        
+
+        private void pass_txt_PasswordChanged_1(object sender, RoutedEventArgs e)
+        {
+            if (PasswordTextBox.Visibility == Visibility.Visible)
+            {
+                PasswordTextBox.Text = pass_txt.Password;
             }
         }
     }

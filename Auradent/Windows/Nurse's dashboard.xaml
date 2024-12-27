@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auradent.Windows"
-        xmlns:uc="clr-namespace:Auradent.UserControls"
+        xmlns:uc="clr-namespace:Auradent.View.Usercontrols"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="Nurse_s_dashboard"
@@ -127,19 +127,26 @@
 
                         <StackPanel>
                             <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0*"/>
+                                    <RowDefinition Height="0*"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Icon for Adding Note -->
-                                <fa:ImageAwesome Icon="Pencil" Width="15" Height="15" Foreground="#759DC0" Grid.Column="0" />
+                                <Button Grid.Column="1" Style="{StaticResource button}" Margin="12,0,12,0" Grid.Row="2" Click="new_patient">
+                                    <fa:ImageAwesome Icon="PlusCircle" Width="15" Height="15" Foreground="#f9f9f9" Margin="-320 0 0 0"/>
+                                </Button>
 
-                                <!-- Label for Add Note -->
-                                <TextBlock Text="Add Note" Name="lblNote" Style="{StaticResource textHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Margin="5,0,0,0" />
+                                <!-- Label for Add Patient -->
+                                <TextBlock Text="New Patient" Name="lblNote" Style="{StaticResource textHint}"  Grid.Column="1" Margin="20,0,0,0" Grid.Row="2" />
 
-                                <!-- TextBox for Note Input (Initially Hidden) -->
-                                <TextBox x:Name="txtNote" Style="{StaticResource textBox}" TextChanged="txtNote_TextChanged" Grid.Column="1" Visibility="Collapsed" Margin="5,0,0,0" />
+
+
                             </Grid>
 
                             <Separator Margin="0 12 0 11" Height="0.8" Background="#759DC0" />
@@ -151,23 +158,23 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Icon for Adding Time -->
-                                <fa:ImageAwesome Icon="Bell" Width="15" Height="15" Foreground="#759DC0" Grid.Column="0" />
+                                <Button Grid.Column="1" Style="{StaticResource button}">
+                                    <fa:ImageAwesome Icon="PlusCircle" Width="15" Height="15" Foreground="#f9f9f9" Margin="-320 0 0 0" />
+                                </Button>
 
-                                <!-- Label for Add Time -->
-                                <TextBlock Text="_ : _ - _ _ : _ _" Name="lblTime" Style="{StaticResource textHint}" MouseDown="lblTime_MouseDown" Grid.Column="1" Margin="5,0,0,0" />
 
-                                <!-- TextBox for Time Input (Initially Hidden) -->
-                                <TextBox x:Name="txtTime" Style="{StaticResource textBox}" TextChanged="txtTime_TextChanged" Grid.Column="1" Visibility="Collapsed" Margin="5,0,0,0" />
+                                <!-- Label for Add Existing Patient -->
+                                <TextBlock Text="Existing Patient" Name="lblTime" Style="{StaticResource textHint}"  Grid.Column="1" Margin="20 0 0 0"/>
+
+
                             </Grid>
                         </StackPanel>
 
-                        <Button Grid.Column="1" Style="{StaticResource button}">
-                            <fa:ImageAwesome Icon="PlusCircle" Width="28" Height="28" Foreground="#f9f9f9" />
-                        </Button>
                     </Grid>
                 </Border>
 
                 <!-- Notes -->
+                
                 <uc:Item Title="Post on social networks" Time="09:45 - 10:30" Color="#759DC0" Icon="CheckCircle" IconBell="BellSlash" />
                 <uc:Item Title="Review the app design" Time="11:30 - 12:00" Color="#759DC0" Icon="CheckCircle" IconBell="BellSlash" />
                 <uc:Item Title="build the demo o the app" Time="14:00 - 15:30" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell" Loaded="Item_Loaded" />

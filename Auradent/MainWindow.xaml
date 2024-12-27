@@ -7,7 +7,7 @@
         xmlns:usercontrols="clr-namespace:Auradent.View.Usercontrols"
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized" Height="1080" Width="1920">
-    
+
     <Grid>
         <!-- Background Image -->
         <Grid.Background>
@@ -38,7 +38,7 @@
         <!-- Labels for Text Content -->
         <Label Content="Connect the distance between" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
                Margin="28,29,-28,56" Grid.RowSpan="6" Grid.ColumnSpan="2" />
-        
+
         <Label Content="you and others!" Grid.Row="1" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
                Margin="32,13,-32,54" Grid.RowSpan="6" Grid.ColumnSpan="2" />
 
@@ -46,18 +46,18 @@
                Foreground="#D7EFFB" Margin="34,40,-34,54" Grid.RowSpan="5" Grid.ColumnSpan="2" />
 
         <!-- Username Input -->
-        <usercontrols:Textboxsignup x:Name="Usr_name" Grid.Column="2" Grid.Row="4" Margin="30,90,120,52"
+        <usercontrols:Textboxsignup x:Name="Usr_name" Grid.Column="2" Grid.Row="4" Margin="30,90,120,48"
                                      Placeholder="Username" Grid.ColumnSpan="2" Grid.RowSpan="2" 
                                      Loaded="Textboxsignup_Loaded_2" />
-        
+
         <Label Content="Enter Username" Grid.Row="4" Grid.Column="2" Margin="38,30,95,109" FontSize="17"
                Foreground="#D7EFFB" Grid.RowSpan="2" />
 
         <!-- Password Input -->
         <usercontrols:Passwordtxtbox x:Name="Pass_txt_box" Grid.Column="2" Grid.Row="6" Margin="32,53,118,43"
                                      Placeholder="Password" Grid.ColumnSpan="2" />
-        
-        <Label Content="Create your Password" Grid.Row="5" Grid.Column="2" Margin="38,116,95,121" FontSize="17"
+
+        <Label Content="Enter your Password" Grid.Row="5" Grid.Column="2" Margin="38,116,95,121" FontSize="17"
                Foreground="#D7EFFB" Grid.RowSpan="2" />
 
         <!-- Sign Up Button -->

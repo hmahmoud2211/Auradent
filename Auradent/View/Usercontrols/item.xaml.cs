@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using FontAwesome.WPF;
-namespace Auradent.UserControls
+namespace Auradent.View.Usercontrols
 {
     public partial class Item : UserControl
     {

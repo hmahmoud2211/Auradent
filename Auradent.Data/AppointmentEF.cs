@@ -24,7 +24,7 @@ namespace Auradent.Data
             try
             {
                 db.Appointment.Add(table);
-                db.SaveChangesAsync();
+                db.SaveChanges();
                 return 1;
             }
             catch { return 0; }
@@ -60,7 +60,7 @@ namespace Auradent.Data
         {
             try
             {
-                return db.Appointment.ToListAsync().Result;
+                return db.Appointment.ToList();
             }
             catch { return new List<Appointment>(); }
         }

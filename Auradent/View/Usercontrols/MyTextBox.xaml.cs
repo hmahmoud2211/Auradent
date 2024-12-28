@@ -17,6 +17,7 @@ namespace Auradent.View.Usercontrols
         }
 
         public static readonly DependencyProperty HintProperty = DependencyProperty.Register("Hint", typeof(string), typeof(MyTextBox));
+        public string Textcontent => textBox.Text;
 
     }
 }

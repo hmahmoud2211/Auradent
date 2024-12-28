@@ -10,7 +10,7 @@ namespace Auradent.core
     {
         public int AppointmentID { get; set; }
         public DateTime AppointmentDate { get; set; }
-        public TimeOnly AppointmentTime { get; set; }
+        public String AppointmentTime { get; set; }
         public string? AppointmentStatus { get; set; }
         // FK
         public int PatientID_FK { get; set; }

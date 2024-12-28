@@ -33,7 +33,7 @@
                 </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource menuButton_newdashboard}">
+            <Button Style="{StaticResource menuButton_newdashboard}" Click="Calander_btn">
                 <StackPanel>
                     <fa:ImageAwesome Icon="Calendar" Foreground="#3b3b3b" Style="{StaticResource menuButtonIcon_newdashboard}" />
                     <TextBlock Text="Calender" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
@@ -54,7 +54,7 @@
                 </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Margin="0 100" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" >
+            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Margin="0 100" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="Log_out_btn">
                 <StackPanel>
                     <materialDesign:PackIcon Kind="ExitToApp" Margin="10 0" Foreground="#3b3b3b"/>
                     <TextBlock Text="Log out" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />

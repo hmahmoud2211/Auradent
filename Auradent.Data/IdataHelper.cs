@@ -17,6 +17,7 @@ namespace Auradent.Data
         public int Add(Table table);
         public int Update(Table table);
         public int Delete(Table item);
+        
     }
 
 }

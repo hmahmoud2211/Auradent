@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Auradent.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddAllTables : Migration
+    public partial class AddTableandtimeedited : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,51 +76,28 @@ namespace Auradent.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "radiologyORtests",
-                columns: table => new
-                {
-                    RadiologyORtestID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Report = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Labtests = table.Column<byte[]>(type: "longblob", nullable: true),
-                    Scans = table.Column<byte[]>(type: "longblob", nullable: true),
-                    MedicalRecordID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_radiologyORtests", x => x.RadiologyORtestID);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "medical_Records",
                 columns: table => new
                 {
-                    RecordId = table.Column<int>(type: "int", nullable: false),
-                    Subjective = table.Column<string>(type: "longtext", nullable: true)
+                    RecordId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Subjective = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    objective = table.Column<string>(type: "longtext", nullable: true)
+                    objective = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Report = table.Column<string>(type: "longtext", nullable: true)
+                    Report = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Assessment = table.Column<string>(type: "longtext", nullable: true)
+                    Assessment = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    TreatmentPlan = table.Column<string>(type: "longtext", nullable: true)
+                    TreatmentPlan = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Notes = table.Column<string>(type: "longtext", nullable: true)
+                    Notes = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RecordDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_medical_Records", x => x.RecordId);
-                    table.ForeignKey(
-                        name: "FK_medical_Records_radiologyORtests_RecordId",
-                        column: x => x.RecordId,
-                        principalTable: "radiologyORtests",
-                        principalColumn: "RadiologyORtestID",
-                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -130,16 +107,16 @@ namespace Auradent.Data.Migrations
                 {
                     PatientID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    PatientName = table.Column<string>(type: "longtext", nullable: true)
+                    PatientName = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    PatientAddress = table.Column<string>(type: "longtext", nullable: true)
+                    PatientPhone = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    PatientPhone = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Gender = table.Column<string>(type: "longtext", nullable: true)
+                    Gender = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     DateOfBirth = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    chronic_diseases = table.Column<string>(type: "longtext", nullable: true)
+                    chronic_diseases = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PatientAddress = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     MedicalRecordID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -156,13 +133,38 @@ namespace Auradent.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "radiologyORtests",
+                columns: table => new
+                {
+                    RadiologyORtestID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Report = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Labtests = table.Column<byte[]>(type: "longblob", nullable: true),
+                    Scans = table.Column<byte[]>(type: "longblob", nullable: true),
+                    MedicalRecordID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_radiologyORtests", x => x.RadiologyORtestID);
+                    table.ForeignKey(
+                        name: "FK_radiologyORtests_medical_Records_MedicalRecordID",
+                        column: x => x.MedicalRecordID,
+                        principalTable: "medical_Records",
+                        principalColumn: "RecordId",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Appointment",
                 columns: table => new
                 {
                     AppointmentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AppointmentDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AppointmentTime = table.Column<TimeOnly>(type: "time(6)", nullable: false),
+                    AppointmentTime = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     AppointmentStatus = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     PatientID_FK = table.Column<int>(type: "int", nullable: false),
@@ -280,6 +282,11 @@ namespace Auradent.Data.Migrations
                 name: "IX_Prescription_PatientID_FK",
                 table: "Prescription",
                 column: "PatientID_FK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_radiologyORtests_MedicalRecordID",
+                table: "radiologyORtests",
+                column: "MedicalRecordID");
         }
 
         /// <inheritdoc />
@@ -295,6 +302,9 @@ namespace Auradent.Data.Migrations
                 name: "Medicine");
 
             migrationBuilder.DropTable(
+                name: "radiologyORtests");
+
+            migrationBuilder.DropTable(
                 name: "Finance");
 
             migrationBuilder.DropTable(
@@ -308,9 +318,6 @@ namespace Auradent.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "medical_Records");
-
-            migrationBuilder.DropTable(
-                name: "radiologyORtests");
         }
     }
 }

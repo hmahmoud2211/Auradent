@@ -41,5 +41,11 @@ namespace Auradent.Windows
             NewPatient secondWindow = new NewPatient();
             secondWindow.Show();
         }
+
+        private void Existing_btn(object sender, RoutedEventArgs e)
+        {
+            ExistPatient secondWindow = new ExistPatient();
+            secondWindow.Show();
+        }
     }
 }

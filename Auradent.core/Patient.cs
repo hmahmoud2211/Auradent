@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +10,19 @@ namespace Auradent.core
 {
     public class Patient
     {
+        [Key]
         public int PatientID { get; set; }
-        public String? PatientName { get; set; }
-        public String? PatientAddress { get; set; }
-        public String? PatientPhone { get; set; }
-        public String? Gender { get; set; }
+        public string PatientName { get; set; }
+        public string PatientPhone { get; set; }
+        public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public String? chronic_diseases { get; set; }
-        // FK
+        public string chronic_diseases { get; set; }
+        public string PatientAddress { get; set; }
         public int MedicalRecordID { get; set; }
+
+        [ForeignKey("MedicalRecordID")]
         // Navigation Properties
-        public Medical_Record Medical_Record { get; set; }
+        public virtual Medical_Record Medical_Record { get; set; }
         public ICollection<Appointment> Appointments { get; set; }
         public ICollection<Prescription> Prescriptions { get; set; }
 

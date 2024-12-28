@@ -21,7 +21,7 @@ namespace Auradent.Data
             try
             {
                 db.medical_Records.Add(table);
-                db.SaveChangesAsync();
+                db.SaveChanges();
                 return 1;
             }
             catch { return 0; }
@@ -58,7 +58,7 @@ namespace Auradent.Data
             catch { return new List<Medical_Record>(); }
         }
 
-        List<Medical_Record> IdataHelper<Medical_Record>.Add_list(Medical_Record table)
+        public List<Medical_Record>  Add_list(Medical_Record table)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace Auradent.Data
             }
         }
 
-        List<Medical_Record> IdataHelper<Medical_Record>.Search(string searchItem)
+        public List<Medical_Record> Search(string searchItem)
         {
             try
             {
@@ -84,9 +84,16 @@ namespace Auradent.Data
             catch { return new List<Medical_Record>(); }
         }
 
-        int IdataHelper<Medical_Record>.Update(Medical_Record table)
+        public int Update(Medical_Record table)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db = new db_context();
+                db.medical_Records.Update(table);
+                db.SaveChanges();
+                return 1;
+            }
+            catch { return 0; }
         }
     }   
     

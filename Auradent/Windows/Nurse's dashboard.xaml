@@ -84,9 +84,9 @@
                     <Button Content="12" Style="{StaticResource button}" />
                 </StackPanel>
 
-                <Separator Height="0.8" Background="#96AEBA" />
+                <Separator Height="0.8" Background="#96AEBA" Margin="0 20" />
 
-                <TextBlock Text="November" Foreground="#3F6F9F" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20" />
+                <TextBlock Text="November" Foreground="#3F6F9F" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 10 0 20" />
 
                 <!-- Calendar Control -->
                 <Calendar CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
@@ -158,7 +158,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Icon for Adding Time -->
-                                <Button Grid.Column="1" Style="{StaticResource button}">
+                                <Button Grid.Column="1" Style="{StaticResource button}" Click="Existing_btn">
                                     <fa:ImageAwesome Icon="PlusCircle" Width="15" Height="15" Foreground="#f9f9f9" Margin="-320 0 0 0" />
                                 </Button>
 

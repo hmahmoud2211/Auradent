@@ -5,27 +5,33 @@ namespace Auradent.View.Usercontrols
 {
     public partial class MyOption : UserControl
     {
-        public MyOption()
-        {
-            InitializeComponent();
-        }
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(MyOption), new PropertyMetadata(default(string)));
+
+        public static readonly DependencyProperty IsSelectedProperty =
+            DependencyProperty.Register("IsSelected", typeof(bool), typeof(MyOption), new PropertyMetadata(false));
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(MyOption));
-
-
-        public FontAwesome.WPF.FontAwesomeIcon Icon
+        public bool IsSelected
         {
-            get { return (FontAwesome.WPF.FontAwesomeIcon)GetValue(IconProperty); }
-            set { SetValue(IconProperty, value); }
+            get => (bool)GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, value);
         }
 
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(FontAwesome.WPF.FontAwesomeIcon), typeof(MyOption));
+        public MyOption()
+        {
+            InitializeComponent();
+            DataContext = this;
+        }
 
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            IsSelected = true;
+        }
     }
 }

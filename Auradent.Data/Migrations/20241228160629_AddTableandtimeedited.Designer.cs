@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Auradent.Data.Migrations
 {
     [DbContext(typeof(db_context))]
-    [Migration("20241220192757_AddAllTables")]
-    partial class AddAllTables
+    [Migration("20241228160629_AddTableandtimeedited")]
+    partial class AddTableandtimeedited
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,8 +39,9 @@ namespace Auradent.Data.Migrations
                     b.Property<string>("AppointmentStatus")
                         .HasColumnType("longtext");
 
-                    b.Property<TimeOnly>("AppointmentTime")
-                        .HasColumnType("time(6)");
+                    b.Property<string>("AppointmentTime")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("DoctorandNurseID_FK")
                         .HasColumnType("int");
@@ -146,27 +147,36 @@ namespace Auradent.Data.Migrations
             modelBuilder.Entity("Auradent.core.Medical_Record", b =>
                 {
                     b.Property<int>("RecordId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("RecordId"));
+
                     b.Property<string>("Assessment")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Notes")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("RecordDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Report")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Subjective")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("TreatmentPlan")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("objective")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("RecordId");
@@ -207,21 +217,26 @@ namespace Auradent.Data.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Gender")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("MedicalRecordID")
                         .HasColumnType("int");
 
                     b.Property<string>("PatientAddress")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("PatientName")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("PatientPhone")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("chronic_diseases")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("PatientID");
@@ -283,6 +298,8 @@ namespace Auradent.Data.Migrations
 
                     b.HasKey("RadiologyORtestID");
 
+                    b.HasIndex("MedicalRecordID");
+
                     b.ToTable("radiologyORtests");
                 });
 
@@ -311,17 +328,6 @@ namespace Auradent.Data.Migrations
                     b.Navigation("Finance");
 
                     b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("Auradent.core.Medical_Record", b =>
-                {
-                    b.HasOne("Auradent.core.RadiologyORtest", "RadiologyORtest")
-                        .WithMany("Medical_Records")
-                        .HasForeignKey("RecordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RadiologyORtest");
                 });
 
             modelBuilder.Entity("Auradent.core.Medicine", b =>
@@ -361,6 +367,17 @@ namespace Auradent.Data.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("Auradent.core.RadiologyORtest", b =>
+                {
+                    b.HasOne("Auradent.core.Medical_Record", "Medical_Records")
+                        .WithMany("RadiologyORtests")
+                        .HasForeignKey("MedicalRecordID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Medical_Records");
+                });
+
             modelBuilder.Entity("Auradent.core.DoctorandNurse", b =>
                 {
                     b.Navigation("Appointments");
@@ -378,6 +395,8 @@ namespace Auradent.Data.Migrations
                 {
                     b.Navigation("Patient")
                         .IsRequired();
+
+                    b.Navigation("RadiologyORtests");
                 });
 
             modelBuilder.Entity("Auradent.core.Patient", b =>
@@ -390,11 +409,6 @@ namespace Auradent.Data.Migrations
             modelBuilder.Entity("Auradent.core.Prescription", b =>
                 {
                     b.Navigation("Medicines");
-                });
-
-            modelBuilder.Entity("Auradent.core.RadiologyORtest", b =>
-                {
-                    b.Navigation("Medical_Records");
                 });
 #pragma warning restore 612, 618
         }

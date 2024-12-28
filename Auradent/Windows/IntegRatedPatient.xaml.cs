@@ -55,5 +55,42 @@ namespace Auradent.Windows
             secondWindow.Show();
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Create the Rectangle dynamically
+            var redRectangle = new Rectangle
+            {
+                Width = 50,
+                Height = 50,
+                Fill = Brushes.Red
+            };
+
+            // Set position on the Canvas
+            Canvas.SetLeft(redRectangle, 100);  // X position
+            Canvas.SetTop(redRectangle, 100);   // Y position
+
+            // Add the rectangle to the Canvas
+
+        }
+
+        private void Tooth_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button toothButton)
+            {
+                // Open the detailed tooth window
+                ToothDetailWindow detailWindow = new ToothDetailWindow();
+                detailWindow.ShowDialog();
+                StatusText.Text = $"Viewing details for Tooth {toothButton.Content}.";
+            }
+        }
+
+
     }
 }

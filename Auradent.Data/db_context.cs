@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySQL.Data.EntityFrameworkCore;
+
 namespace Auradent.Data
 {
     public class db_context : DbContext
@@ -16,7 +17,7 @@ namespace Auradent.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
-            optionsBuilder.UseMySql("server=localhost;database=auradent2;user=root;password=Hazem@2003", serverVersion);
+            optionsBuilder.UseMySql("server=localhost;database=auradent_db_final;user=root;password=Hazem@2003", serverVersion);
         }
 
         
@@ -70,10 +71,12 @@ namespace Auradent.Data
                 .WithOne(p => p.Patient)
                 .HasForeignKey<Patient>(a => a.MedicalRecordID);
 
-            modelBuilder.Entity<Medical_Record>()
-                .HasOne(a => a.RadiologyORtest)
-                .WithMany(p => p.Medical_Records)
-                .HasForeignKey(a => a.RecordId);
+            modelBuilder.Entity<RadiologyORtest>()
+               .HasOne(a => a.Medical_Records)
+               .WithMany(p => p.RadiologyORtests)
+               .HasForeignKey(a => a.MedicalRecordID);
         }
+
+        
     }
 }

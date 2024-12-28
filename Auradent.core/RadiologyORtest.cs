@@ -16,6 +16,6 @@ namespace Auradent.core
         // FK
         public int MedicalRecordID { get; set; }
         // Navigation Properties
-        public ICollection<Medical_Record> Medical_Records { get; set; }
+        public Medical_Record Medical_Records { get; set; }
     }
 }

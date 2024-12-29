@@ -10,7 +10,7 @@ namespace Auradent.Windows
 
     public partial class NewPatient : Window
     {
-        private IdataHelper<Patient> dataHelperPatient;
+        private IdataHelper<core.Patient> dataHelperPatient;
         private IdataHelper<Medical_Record> dataHelperRecord;
         Medical_Record new_record;
         public static readonly DependencyProperty TextProperty =
@@ -27,7 +27,7 @@ namespace Auradent.Windows
                 throw new InvalidOperationException("Service provider is not initialized.");
             }
 
-            dataHelperPatient = services.GetService<IdataHelper<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available.");
+            dataHelperPatient = services.GetService<IdataHelper<core.Patient>>() ?? throw new InvalidOperationException("Data helper service is not available.");
             dataHelperRecord = services.GetService<IdataHelper<Medical_Record>>() ?? throw new InvalidOperationException("Data helper service is not available.");
         }
 
@@ -65,14 +65,14 @@ namespace Auradent.Windows
                 }
 
                 // Create new Patient
-                Patient new_patient = new Patient
+                core.Patient new_patient = new core.Patient
                 {
                     PatientName = Name_txt.Textcontent,
                     Gender = (MaleRadioButton.IsChecked ?? false) ? "Male" : "Female",
                     PatientPhone = phone_txt.Textcontent,
                     PatientID = int.Parse(national_id_txt.Textcontent[^4..]),
                     DateOfBirth = date_txt.SelectedDate ?? DateTime.Now,
-                    chronic_diseases = "",
+                    chronic_diseases = "ta3ban",
                     PatientAddress = "6 October",
                 };
 

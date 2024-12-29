@@ -1,0 +1,92 @@
+﻿<Window x:Class="Auradent.Windows.Report"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:Auradent.View.Usercontrols"
+        xmlns:local="clr-namespace:Auradent.Windows"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="700" Width="1180" Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+
+    <Grid>
+        <!-- Layout Definitions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Titlebar Section -->
+        <StackPanel Orientation="Horizontal" Background="#759DC0" Panel.ZIndex="1" FlowDirection="RightToLeft" MouseDown="StackPanel_MouseDown">
+            <!-- Close Button -->
+            <Button Style="{StaticResource buttonClose}" Click="CloseButton_Click">
+                <fa:ImageAwesome Icon="TimesCircle" Width="20" Margin="2 0 0 0" Foreground="#f9f9f9" />
+            </Button>
+
+            <!-- Minimize Button -->
+            <Button Style="{StaticResource buttonMini}" Margin="5 0 0 0" Click="MinimizeButton_Click">
+                <fa:ImageAwesome Icon="MinusCircle" Width="20" Margin="2 0 0 0" Foreground="#f9f9f9" />
+            </Button>
+        </StackPanel>
+
+        <!-- Patient Selection Section -->
+        <Grid Grid.Row="1" Background="#ffff">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <!--Search Bar-->
+            <StackPanel Orientation="Horizontal" Margin="0 40 0 30" VerticalAlignment="Center" Width="350" HorizontalAlignment="Right">
+                <TextBlock Margin="40 0 0 0" 
+                          VerticalAlignment="Center" 
+                          Foreground="#594f7f"
+                          IsHitTestVisible="False" 
+                          Panel.ZIndex="1" 
+                          Text="Search..."
+                          Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource MathAddConverter}}"/>
+                <TextBox x:Name="txtSearch" 
+                         Style="{StaticResource SearchTextBox}" 
+                         Width="205"
+                         TextChanged="txtSearch_TextChanged"/>
+                <Icon:PackIconMaterial Kind="Magnify" 
+                                     Width="14" 
+                                     Height="14" 
+                                     Foreground="#594f7f"
+                                     HorizontalAlignment="Left" 
+                                     VerticalAlignment="Center" 
+                                     Margin="15 0 0 0"/>
+            </StackPanel>
+
+            <!-- Title Section -->
+            <StackPanel Orientation="Horizontal" Margin="0 40 0 30" VerticalAlignment="Center" Width="350" HorizontalAlignment="Left">
+                <TextBlock Text="1" FontSize="28" FontWeight="SemiBold" FontFamily="Trebuchet MS" VerticalAlignment="Center" Margin="50 0 0 0"/>
+                <Rectangle VerticalAlignment="Stretch" Fill="#759DC0" Width="0.7" Margin="20 5 20 5"/>
+                <TextBlock Text="Patients Reports" FontSize="26" VerticalAlignment="Center" Foreground="#759DC0"/>
+            </StackPanel>
+
+            <!-- Scrollable Patient List Section -->
+            <ScrollViewer Grid.Row="1" Margin="20 0 0 0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="patientsStackPanel" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </ScrollViewer>
+
+            <!-- Bottom Section -->
+            <Grid Grid.Row="2" Margin="80 0 80 30" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource buttonBack}" Height="50" Width="150" VerticalAlignment="Center" Click="BackButton_Click">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <md:PackIcon Kind="ArrowLeft" Width="40" Height="40" Foreground="#3F6F95" Margin="0 0 10 0"/>
+                        <TextBlock Text="Back" FontSize="30" FontWeight="SemiBold" Foreground="#3F6F95" Margin="0 0 10 0"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

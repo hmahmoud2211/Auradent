@@ -1,0 +1,287 @@
+﻿<Window x:Class="Auradent.Windows.SOAP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Auradent.Windows" 
+        xmlns:UserControl="clr-namespace:Auradent.View.Usercontrols"
+        Title="SOAP" Width="1200" Height="600"  MinHeight="800" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
+
+
+
+    <Border CornerRadius="5" Background="#ffffff" MouseDown="Grid_MouseDown" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+
+            <!--App Title-->
+            <TextBlock Text="SOAP" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55 0 0 2" FontSize="20" FontWeight="SemiBold" Foreground="#4880FF"/>
+            <Icon:PackIconMaterial Kind="Message" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33 0 0 4" Width="16" Height="16" Foreground="#FF9D00"/>
+            <Icon:PackIconMaterial Kind="Message" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 4 0 0" Width="16" Height="16" Foreground="#4880FF"/>
+
+            <!--Top Menu-->
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 15 0">
+                <TextBlock Text="All soap details" Foreground="#374655" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" Margin="0 0 65 0"/>
+
+                <Button Style="{StaticResource MENOButton}" Margin="5 0">
+                    <Icon:PackIconMaterial Kind="BellOutline" Width="16" Height="16"/>
+                </Button>
+
+                <Button Style="{StaticResource MENOButton}" Margin="5 0">
+                    <Icon:PackIconMaterial Kind="LayersOutline" Width="16" Height="16"/>
+                </Button>
+
+                <Button Style="{StaticResource MENOButton}" Background="#efefef" Margin="5 0">
+                    <Icon:PackIconMaterial Kind="AccountCheckOutline" Width="16" Height="16"/>
+                </Button>
+            </StackPanel>
+
+            <!--Right Section-->
+            <Border Grid.Row="1" Grid.Column="1" Background="#5a5080" CornerRadius="0 0 5 0">
+                <StackPanel Margin="40 0 20 0">
+                    <!--Main Image-->
+                    <Border CornerRadius="100" Width="100" Height="100" Background="#ffffff" Margin="15 40 20 20">
+                        <Ellipse Width="95" Height="95">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+
+                    <!--Section Description-->
+                    <TextBlock Foreground="#ffffff" FontWeight="SemiBold" TextAlignment="Center" FontSize="24" Text="Examination Details" Margin="0 10"/>
+                    <TextBlock TextWrapping="Wrap" Foreground="#E6E8EC" FontSize="14" Margin="20 10 20 30" LineHeight="24" FontWeight="Light" TextAlignment="Center" 
+                             Text="All examination details for the patient including Reports, Observations, and Complaints"/>
+                </StackPanel>
+            </Border>
+
+            <!--Left Section-->
+            <Border Grid.Row="1" Background="#F2F5F8" CornerRadius="0 0 0 5">
+                <Grid Margin="40 20">
+                    <!--Main Layer-->
+                    <Border CornerRadius="10" Background="#ffffff">
+                        <Border.Effect>
+                            <DropShadowEffect Direction="-130" BlurRadius="20" ShadowDepth="3" Opacity="0.1"/>
+                        </Border.Effect>
+
+                        <Grid Margin="30 20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Form Title-->
+                            <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Form Title-->
+                            <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
+                                <Border CornerRadius="50" BorderThickness="1.5" BorderBrush="#EFEFEF">
+                                    <Ellipse Width="40" Height="40">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\View\Images\DESIGN1.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Border>
+
+                                <TextBlock Text="Examination" Foreground="#374655" FontSize="18" Margin="15 0 0 0" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <!--Form Percentage-->
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0 20 20 0">
+                                <Border Width="30" Height="30" CornerRadius="50" BorderThickness="3" ClipToBounds="True">
+                                    <Border.BorderBrush>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#4880FF" Offset="0"/>
+                                            <GradientStop Color="#EFEFEF" Offset="0.4"/>
+                                        </LinearGradientBrush>
+                                    </Border.BorderBrush>
+                                </Border>
+
+                                <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
+                                    <TextBlock Text="Examination of Patient" Foreground="#4880FF" FontSize="14" FontWeight="SemiBold" Margin="5 2 0 0"/>
+                                    <TextBlock Text="Patient Profile Diagnose" Foreground="#97A5B4" Margin="5 2 0 0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Separator Grid.Row="1" Grid.ColumnSpan="2" Height="0.7" Margin="-20 20 -20 20" Background="#E1E6EB"/>
+
+                            <!-- Updated Complaint Section -->
+                            <StackPanel Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="3">
+
+
+                                <StackPanel Grid.Row="2" Grid.Column="0" Margin="20,10,10,10">
+                                    <TextBlock Text="Complaint" FontWeight="SemiBold" Foreground="#374655" Margin="0,0,0,5"/>
+                                    <ComboBox x:Name="ComplaintComboBox" Width="300" Height="30" SelectionChanged="ComplaintComboBox_SelectionChanged">
+                                        <ComboBoxItem Content="Severe toothache"/>
+                                        <ComboBoxItem Content="Pain while chewing or biting"/>
+                                        <ComboBoxItem Content="Bleeding gums"/>
+                                        <ComboBoxItem Content="Soreness in the gums"/>
+                                        <ComboBoxItem Content="Bad breath"/>
+                                        <ComboBoxItem Content="Misaligned teeth or malocclusion"/>
+                                        <ComboBoxItem Content="Uneven or chipped teeth"/>
+                                        <ComboBoxItem Content="Broken, cracked, or chipped teeth"/>
+                                        <ComboBoxItem Content="Loose or missing teeth"/>
+                                        <ComboBoxItem Content="Jaw pain or difficulty in opening/closing the mouth"/>
+                                        <ComboBoxItem Content="Swollen face or jaw due to infection"/>
+                                        <ComboBoxItem Content="Broken dental crowns, bridges, or implants"/>
+                                        <ComboBoxItem Content="Pain or sensitivity after dental procedures"/>
+                                        <ComboBoxItem Content="Bleeding or swelling after tooth extraction"/>
+                                        <ComboBoxItem Content="Delayed eruption of teeth (for children)"/>
+                                        <ComboBoxItem Content="Problems with wisdom teeth (impacted or erupting incorrectly)"/>
+                                        <ComboBoxItem Content="Unusual growths or lesions in the mouth"/>
+                                        <ComboBoxItem Content="Burning sensation in the mouth or tongue"/>
+                                        <ComboBoxItem Content="Mouth sores or ulcers"/>
+                                        <ComboBoxItem Content="Unexplained lumps or patches in the oral cavity"/>
+                                        <ComboBoxItem Content="Nail-biting affecting teeth"/>
+                                        <ComboBoxItem Content="Gummy smile correction"/>
+                                        <ComboBoxItem Content="Persistent metallic taste in the mouth"/>
+                                        <ComboBoxItem Content="Unhealed extraction sites or dry sockets"/>
+                                        <ComboBoxItem Content="Loose or broken braces wire/brackets"/>
+                                        <ComboBoxItem Content="Cosmetic"/>
+                                        <ComboBoxItem Content="Other"/>
+                                    </ComboBox>
+
+                                    <!-- Free-Text Input for "Other" Complaints -->
+                                    <TextBox x:Name="OtherComplaintTextBox" Width="300" Height="80" Margin="0,10,0,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Visibility="Collapsed" Text="Please specify your complaint in detail..."/>
+                                </StackPanel>
+
+
+                                <!-- Notes TextBoxes -->
+                                <Grid Grid.Column="0" Grid.Row="3" Width="550" Height="100">
+                                    <TextBox x:Name="AssessmentNotes" Height="100" VerticalScrollBarVisibility="Auto" TextChanged="AssessmentNotes_TextChanged"/>
+                                    <TextBlock x:Name="AssessmentPlaceholder" Text="Write your notes here..." Foreground="Gray" Margin="5,0,0,0" VerticalAlignment="Top" IsHitTestVisible="False" Visibility="Visible"/>
+                                </Grid>
+
+
+                            </StackPanel>
+                            <!-- Updated Initial Diagnosis Section -->
+                            <StackPanel Grid.Row="2" Grid.Column="1" Margin="10,10,20,10">
+                                <TextBlock Text="Initial Diagnosis" FontWeight="SemiBold" Foreground="#374655" Margin="0,0,0,5"/>
+                                <ComboBox x:Name="InitialDiagnoseComboBox" Width="300" Height="30" SelectionChanged="InitialDiagnoseComboBox_SelectionChanged">
+                                    <ComboBoxItem Content="Dental caries (tooth decay)"/>
+                                    <ComboBoxItem Content="Gingivitis"/>
+                                    <ComboBoxItem Content="Periodontitis"/>
+                                    <ComboBoxItem Content="Pulpitis"/>
+                                    <ComboBoxItem Content="Dental abscess"/>
+                                    <ComboBoxItem Content="Malocclusion"/>
+                                    <ComboBoxItem Content="Temporomandibular joint disorder (TMJ disorder)"/>
+                                    <ComboBoxItem Content="Bruxism (teeth grinding)"/>
+                                    <ComboBoxItem Content="Oral candidiasis"/>
+                                    <ComboBoxItem Content="Pericoronitis (inflammation around a wisdom tooth)"/>
+                                    <ComboBoxItem Content="Impacted tooth"/>
+                                    <ComboBoxItem Content="Oral lichen planus"/>
+                                    <ComboBoxItem Content="Fractured tooth"/>
+                                    <ComboBoxItem Content="Hypersensitivity (dentin hypersensitivity)"/>
+                                    <ComboBoxItem Content="Dry socket (alveolar osteitis)"/>
+                                    <ComboBoxItem Content="Other"/>
+                                </ComboBox>
+                                <!-- Free-text input field -->
+                                <TextBox x:Name="InitialDiagnoseTextBox" Width="300" Height="80" Margin="0,10,0,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="Describe your diagnosis here..." Visibility="Collapsed"/>
+                            </StackPanel>
+
+
+
+
+                            <Grid Grid.Column="1" Grid.Row="3" Width="300">
+                                <TextBox x:Name="PlanNotes" Height="100" VerticalScrollBarVisibility="Auto" TextChanged="PlanNotes_TextChanged"/>
+                                <TextBlock x:Name="PlanPlaceholder" Text="Write your notes here..." Foreground="Gray" Margin="5,0,0,0" VerticalAlignment="Top" IsHitTestVisible="False" Visibility="Visible"/>
+                            </Grid>
+
+                            <GroupBox Header="Add New Examination" Grid.Row="5" Grid.ColumnSpan="2" Height="auto" VerticalAlignment="Top">
+                                <StackPanel Margin="10">
+                                    <!-- Temperature -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                        <TextBlock Text="Temperature:" Width="150" VerticalAlignment="Center" />
+                                        <TextBox x:Name="TemperatureTextBox" Width="150" />
+                                        <TextBlock Text="°C" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                    </StackPanel>
+
+                                    <!-- Pulse Rate -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                        <TextBlock Text="Pulse Rate:" Width="150" VerticalAlignment="Center" />
+                                        <TextBox x:Name="PulseRateTextBox" Width="150" />
+                                        <TextBlock Text="bpm" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                    </StackPanel>
+
+                                    <!-- Respiratory Rate -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                        <TextBlock Text="Respiratory Rate:" Width="150" VerticalAlignment="Center" />
+                                        <TextBox x:Name="RespRateTextBox" Width="150" />
+                                        <TextBlock Text="breaths/min" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                    </StackPanel>
+
+
+                                    <!-- Allergies -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                        <TextBlock Text="Allergies" Width="150" VerticalAlignment="Center" />
+                                        <TextBox x:Name="AllergiesTextBox" Width="150" />
+
+                                    </StackPanel>
+
+
+                                    <!-- Pain Level -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                        <TextBlock Text="Pain Level" Width="150" VerticalAlignment="Center" />
+                                        <TextBox x:Name="PainlevelTextBox" Width="150" />
+                                        <TextBlock Text="0/10" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                    </StackPanel>
+
+
+
+                                    <!-- Medications -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                        <TextBlock Text="Current Medications" Width="150" VerticalAlignment="Center" />
+                                        <TextBox x:Name="CurrentMedTextBox" Width="150" />
+
+                                    </StackPanel>
+
+
+                                    <!-- Notes -->
+                                    <TextBlock Text="Notes:" Margin="0,10,0,5" />
+                                    <RichTextBox x:Name="ExaminationNotesTextBox" Height="100" />
+                                </StackPanel>
+                            </GroupBox>
+
+                            <!--Form Bottom Background-->
+                            <Border Grid.Row="6" Grid.ColumnSpan="2" Height="80" Background="#f6f6f6" CornerRadius="0 0 10 10" Margin="-20 40 -20 0"/>
+
+                            <!--Main Button-->
+                            <Button Grid.Column="1" Grid.Row="6" Content="Save Next" HorizontalAlignment="Right" Margin="0 40 20 0" Style="{StaticResource mainButton}">
+                                <Button.Effect>
+                                    <DropShadowEffect Direction="-120" BlurRadius="10" Opacity="0.3" ShadowDepth="5" Color="#4880FF"/>
+                                </Button.Effect>
+                            </Button>
+
+                            <!--Secondary Button-->
+                            <Button Grid.Row="6" Content="Back" HorizontalAlignment="Left" Margin="20 40 0 0" Style="{StaticResource secondaryButton}" Width="150"/>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Border>
+</Window>

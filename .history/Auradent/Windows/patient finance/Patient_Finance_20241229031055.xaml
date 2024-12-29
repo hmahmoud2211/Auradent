@@ -1,0 +1,431 @@
+﻿<Window
+    x:Class="Auradent.Windows.patient_finance.Patient_Finance"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:oxy="http://oxyplot.org/wpf"
+    xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    Title="Patient Finance"
+    Height="800"
+    Width="1400"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent">
+
+    <Window.Resources>
+        <Style x:Key="DataGridStyle"
+                TargetType="DataGrid">
+            <Setter Property="Background"
+                    Value="Transparent"/>
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+            <Setter Property="GridLinesVisibility"
+                    Value="None"/>
+            <Setter Property="RowHeaderWidth"
+                    Value="0"/>
+            <Setter Property="IsReadOnly"
+                    Value="True"/>
+            <Setter Property="AutoGenerateColumns"
+                    Value="False"/>
+            <Setter Property="SelectionMode"
+                    Value="Single"/>
+            <Setter Property="SelectionUnit"
+                    Value="FullRow"/>
+            <Setter Property="CanUserAddRows"
+                    Value="False"/>
+            <Setter Property="CanUserDeleteRows"
+                    Value="False"/>
+            <Setter Property="CanUserReorderColumns"
+                    Value="False"/>
+            <Setter Property="CanUserResizeRows"
+                    Value="False"/>
+            <Setter Property="FontSize"
+                    Value="13"/>
+            <Setter Property="Foreground"
+                    Value="#E4E6EB"/>
+        </Style>
+
+        <Style x:Key="DataGridCellStyle"
+                TargetType="DataGridCell">
+            <Setter Property="Background"
+                    Value="Transparent"/>
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+            <Setter Property="Padding"
+                    Value="15 10"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                        Value="True">
+                    <Setter Property="Background"
+                            Value="#7B5CD6"/>
+                    <Setter Property="Foreground"
+                            Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="DataGridColumnHeaderStyle"
+                TargetType="DataGridColumnHeader">
+            <Setter Property="Background"
+                    Value="Transparent"/>
+            <Setter Property="Foreground"
+                    Value="#7B5CD6"/>
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
+            <Setter Property="Padding"
+                    Value="15 10"/>
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+        </Style>
+
+        <Style x:Key="DataGridRowStyle"
+                TargetType="DataGridRow">
+            <Setter Property="Background"
+                    Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                        Value="True">
+                    <Setter Property="Background"
+                            Value="#292B2F"/>
+                </Trigger>
+                <Trigger Property="IsSelected"
+                        Value="True">
+                    <Setter Property="Background"
+                            Value="#7B5CD6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Button Styles -->
+        <Style x:Key="IconButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#292B2F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonIcon" TargetType="Icon:PackIconMaterial">
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="Height" Value="12"/>
+            <Setter Property="Foreground" Value="#E4E6EB"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="AddButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#7B5CD6"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="15 8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="5"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#9277E0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="#1E1F22"
+            CornerRadius="20"
+            MouseDown="Border_MouseDown">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0"
+                    Margin="0 0 0 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Title and Patient Info -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Financial Overview"
+                               Foreground="White"
+                               FontSize="28"
+                               FontWeight="SemiBold"/>
+                    <StackPanel Orientation="Horizontal"
+                            Margin="0 10 0 0">
+                        <TextBlock Text="Patient: "
+                                   Foreground="#7B5CD6"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock x:Name="PatientNameText"
+                                   Text="John Doe"
+                                   Foreground="#E4E6EB"
+                                   FontSize="16"
+                                   Margin="5 0 0 0"/>
+                        <TextBlock Text=" | ID: "
+                                   Foreground="#7B5CD6"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   Margin="15 0 0 0"/>
+                        <TextBlock x:Name="PatientIdText"
+                                   Text="12345"
+                                   Foreground="#E4E6EB"
+                                   FontSize="16"
+                                   Margin="5 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Control Buttons -->
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top">
+                    <Button Style="{StaticResource IconButtonStyle}"
+                            Margin="0 0 15 0"
+                            Click="MinimizeButton_Click">
+                        <Icon:PackIconMaterial Kind="WindowMinimize"
+                                               Style="{StaticResource ButtonIcon}"/>
+                    </Button>
+                    <Button Style="{StaticResource IconButtonStyle}"
+                            Margin="0 0 15 0"
+                            Click="MaximizeButton_Click">
+                        <Icon:PackIconMaterial Kind="WindowMaximize"
+                                               Style="{StaticResource ButtonIcon}"/>
+                    </Button>
+                    <Button Style="{StaticResource IconButtonStyle}"
+                            Click="CloseButton_Click">
+                        <Icon:PackIconMaterial Kind="Close"
+                                               Style="{StaticResource ButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!-- Main Content -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Panel - Transaction History -->
+                <Border Background="#2B2D31"
+                        CornerRadius="15"
+                        Padding="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Transaction History Header -->
+                        <Grid Grid.Row="0"
+                                Margin="0 0 0 20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Transaction History"
+                                       Foreground="White"
+                                       FontSize="20"
+                                       FontWeight="SemiBold"/>
+
+                            <Button Grid.Column="1"
+                                    Style="{StaticResource AddButtonStyle}"
+                                    Click="AddTransaction_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Plus"
+                                                           Width="12"
+                                                           Height="12"
+                                                           Margin="0 1 8 0"/>
+                                    <TextBlock Text="Add Transaction"/>
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+
+                        <!-- Transactions DataGrid -->
+                        <DataGrid Grid.Row="1"
+                                  x:Name="TransactionsDataGrid"
+                                  Style="{StaticResource DataGridStyle}"
+                                  CellStyle="{StaticResource DataGridCellStyle}"
+                                  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                  RowStyle="{StaticResource DataGridRowStyle}"
+                                  ItemsSource="{Binding SalesData}"
+                                  SelectionChanged="DataGrid_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Date"
+                                                    Binding="{Binding Month}"
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Amount"
+                                                    Binding="{Binding Sales}"
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Status"
+                                                    Binding="{Binding Status}"
+                                                    Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!-- Summary Section -->
+                        <Border Grid.Row="2"
+                                Background="#232428"
+                                CornerRadius="10"
+                                Padding="15"
+                                Margin="0 20 0 0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Total Paid -->
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Total Paid"
+                                               Foreground="#7B5CD6"
+                                               FontSize="12"/>
+                                    <TextBlock x:Name="TotalPaidText"
+                                               Text="$2,450.00"
+                                               Foreground="White"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0 5 0 0"/>
+                                </StackPanel>
+
+                                <!-- Outstanding -->
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Outstanding"
+                                               Foreground="#7B5CD6"
+                                               FontSize="12"/>
+                                    <TextBlock x:Name="OutstandingText"
+                                               Text="$550.00"
+                                               Foreground="#FF5252"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0 5 0 0"/>
+                                </StackPanel>
+
+                                <!-- Total Cost -->
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Total Cost"
+                                               Foreground="#7B5CD6"
+                                               FontSize="12"/>
+                                    <TextBlock x:Name="TotalCostText"
+                                               Text="$3,000.00"
+                                               Foreground="#E4E6EB"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Separator -->
+                <Rectangle Grid.Column="1"
+                           Fill="#2B2D31"
+                           Width="2"
+                           Margin="9 0"/>
+
+                <!-- Right Panel - Analytics -->
+                <Border Grid.Column="2"
+                        Background="#2B2D31"
+                        CornerRadius="15"
+                        Padding="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Analytics Header -->
+                        <TextBlock Text="Payment Analytics"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Margin="0 0 0 20"/>
+
+                        <!-- Payment Graph -->
+                        <oxy:PlotView Grid.Row="1"
+                                      Model="{Binding GraphModel}"
+                                      Background="Transparent"/>
+
+                        <!-- Payment Methods -->
+                        <Border Grid.Row="2"
+                                Background="#232428"
+                                CornerRadius="10"
+                                Padding="15"
+                                Margin="0 20 0 0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Cash -->
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Cash"
+                                               Foreground="#7B5CD6"
+                                               FontSize="12"/>
+                                    <TextBlock x:Name="CashPaymentsText"
+                                               Text="45%"
+                                               Foreground="White"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0 5 0 0"/>
+                                </StackPanel>
+
+                                <!-- Card -->
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Card"
+                                               Foreground="#7B5CD6"
+                                               FontSize="12"/>
+                                    <TextBlock x:Name="CardPaymentsText"
+                                               Text="35%"
+                                               Foreground="White"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0 5 0 0"/>
+                                </StackPanel>
+
+                                <!-- Insurance -->
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Insurance"
+                                               Foreground="#7B5CD6"
+                                               FontSize="12"/>
+                                    <TextBlock x:Name="InsurancePaymentsText"
+                                               Text="20%"
+                                               Foreground="White"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
+

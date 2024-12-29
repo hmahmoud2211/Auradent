@@ -8,8 +8,13 @@
         xmlns:uc="clr-namespace:Auradent.View.Usercontrols"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-       mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
-        AllowsTransparency="True" Background="Transparent" Height="890" Width="1650">
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Height="890"
+        Width="1650">
 
 
 
@@ -25,14 +30,19 @@
         </Grid.RowDefinitions>
 
         <!--Grid Backgrounds-->
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" >
+        <Grid Grid.Row="0"
+              Grid.ColumnSpan="2">
 
 
-            <Border CornerRadius="10 10 0 0" MouseDown="Border_MouseDown" >
+            <Border CornerRadius="10 10 0 0"
+                    MouseDown="Border_MouseDown">
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#4679A3" Offset="0" />
-                        <GradientStop Color="#5a5080" Offset="1" />
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#4679A3"
+                                      Offset="0"/>
+                        <GradientStop Color="#5a5080"
+                                      Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
@@ -40,14 +50,19 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" >
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="2">
 
 
-            <Border CornerRadius="10 10 0 0" MouseDown="Border_MouseDown" >
+            <Border CornerRadius="10 10 0 0"
+                    MouseDown="Border_MouseDown">
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#4679A3" Offset="0" />
-                        <GradientStop Color="#5a5080" Offset="1" />
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#4679A3"
+                                      Offset="0"/>
+                        <GradientStop Color="#5a5080"
+                                      Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
@@ -56,87 +71,146 @@
         </Grid>
 
         <!--Top Menu-->
-        <Grid Grid.ColumnSpan="2" Grid.Row="0" Margin="50 30 50 40" >
-            <Button HorizontalAlignment="Right"  Background="Transparent" BorderBrush="Transparent">
-                <fa:ImageAwesome Icon="BellOutline" Style="{StaticResource buttonIcon_newdashboard}" />
+        <Grid Grid.ColumnSpan="2"
+              Grid.Row="0"
+              Margin="50 30 50 40">
+            <Button HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderBrush="Transparent">
+                <fa:ImageAwesome Icon="BellOutline"
+                                 Style="{StaticResource buttonIcon_newdashboard}"/>
             </Button>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Analytics" Opacity="1" Style="{StaticResource menuTitle_newdashboard}" />
-                <TextBlock Text="Leaderboard" Style="{StaticResource menuTitle_newdashboard}" />
-                <TextBlock Text="Realtime" Style="{StaticResource menuTitle_newdashboard}" />
-                <TextBlock Text="Trending" Style="{StaticResource menuTitle_newdashboard}" />
-                <TextBlock Text="Favorite" Style="{StaticResource menuTitle_newdashboard}" />
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <TextBlock Text="Analytics"
+                           Opacity="1"
+                           Style="{StaticResource menuTitle_newdashboard}"/>
+                <TextBlock Text="Leaderboard"
+                           Style="{StaticResource menuTitle_newdashboard}"/>
+                <TextBlock Text="Realtime"
+                           Style="{StaticResource menuTitle_newdashboard}"/>
+                <TextBlock Text="Trending"
+                           Style="{StaticResource menuTitle_newdashboard}"/>
+                <TextBlock Text="Favorite"
+                           Style="{StaticResource menuTitle_newdashboard}"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Image  Margin="0 0 15 0" Style="{StaticResource iconApp_newdashboard}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Image  Margin="0 0 15 0"
+                        Style="{StaticResource iconApp_newdashboard}"/>
                 <Image  Style="{StaticResource iconApp_newdashboard}"/>
             </StackPanel>
         </Grid>
 
         <!--Left Menu-->
-        <Border CornerRadius="15" Background="#FDFDFD" BorderBrush="#dbdbdb" BorderThickness="1" Width="125" Grid.Row="1" Margin="50 0 50 40">
+        <Border CornerRadius="15"
+                Background="#FDFDFD"
+                BorderBrush="#dbdbdb"
+                BorderThickness="1"
+                Width="125"
+                Grid.Row="1"
+                Margin="50 0 50 40">
             <StackPanel>
-                <Button Style="{StaticResource menuButton_newdashboard}" Margin="0 10 0 0" Background="#20415C " Foreground="#FFFFFF">
+                <Button Style="{StaticResource menuButton_newdashboard}"
+                        Margin="0 10 0 0"
+                        Background="#20415C "
+                        Foreground="#FFFFFF">
                     <StackPanel>
-                        <fa:ImageAwesome Icon="Home" Style="{StaticResource menuButtonIcon_newdashboard}" />
-                        <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText_newdashboard}" />
+                        <fa:ImageAwesome Icon="Home"
+                                         Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                        <TextBlock Text="Dashboard"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton_newdashboard}" Click="SearchBtn">
+                    <StackPanel>
+                        <fa:ImageAwesome Icon="Search"
+                                         Foreground="#3b3b3b"
+                                         Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                        <TextBlock Text="Search"
+                                   Foreground="#3b3b3b"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton_newdashboard}" Click="ReportBtn">
+                    <StackPanel>
+                        <fa:ImageAwesome Icon="File"
+                                         Foreground="#3b3b3b"
+                                         Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                        <TextBlock Text="Report"
+                                   Foreground="#3b3b3b"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton_newdashboard}"
+                        Click="Calender_btn">
+                    <StackPanel>
+                        <fa:ImageAwesome Icon="Calendar"
+                                         Foreground="#3b3b3b"
+                                         Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                        <TextBlock Text="Calender"
+                                   Foreground="#3b3b3b"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource menuButton_newdashboard}">
                     <StackPanel>
-                        <fa:ImageAwesome Icon="Search" Foreground="#3b3b3b" Style="{StaticResource menuButtonIcon_newdashboard}" />
-                        <TextBlock Text="Search" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton_newdashboard}">
-                    <StackPanel>
-                        <fa:ImageAwesome Icon="File" Foreground="#3b3b3b" Style="{StaticResource menuButtonIcon_newdashboard}" />
-                        <TextBlock Text="Report" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton_newdashboard}" Click="Calender_btn">
-                    <StackPanel>
-                        <fa:ImageAwesome Icon="Calendar" Foreground="#3b3b3b" Style="{StaticResource menuButtonIcon_newdashboard}" />
-                        <TextBlock Text="Calender" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton_newdashboard}">
-                    <StackPanel>
-                        <fa:ImageAwesome Icon="Comments" Foreground="#3b3b3b" Style="{StaticResource menuButtonIcon_newdashboard}" />
-                        <TextBlock Text="Chatbot" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
+                        <fa:ImageAwesome Icon="Comments"
+                                         Foreground="#3b3b3b"
+                                         Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                        <TextBlock Text="Chatbot"
+                                   Foreground="#3b3b3b"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource menuButton}">
                     <StackPanel>
-                        <fa:ImageAwesome Icon="Money" Foreground="#3b3b3b" Style="{StaticResource menuButtonIcon_newdashboard}" />
-                        <TextBlock Text="Finance" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
+                        <fa:ImageAwesome Icon="Money"
+                                         Foreground="#3b3b3b"
+                                         Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                        <TextBlock Text="Finance"
+                                   Foreground="#3b3b3b"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Margin="0 100" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Click="log_out">
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Margin="0 100"
+                        BorderBrush="{x:Null}"
+                        Background="{x:Null}"
+                        Foreground="Black"
+                        Click="log_out">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="ExitToApp" Margin="10 0" Foreground="#3b3b3b"/>
-                        <TextBlock Text="Log out" Foreground="#3b3b3b" Style="{StaticResource menuButtonText_newdashboard}" />
+                        <materialDesign:PackIcon Kind="ExitToApp"
+                                                 Margin="10 0"
+                                                 Foreground="#3b3b3b"/>
+                        <TextBlock Text="Log out"
+                                   Foreground="#3b3b3b"
+                                   Style="{StaticResource menuButtonText_newdashboard}"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
         </Border>
         <!--Main Panel-->
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="0 0 50 20" VerticalAlignment="Stretch">
-            <Grid Height="110" Margin="-8 0 -8 0">
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="0 0 50 20"
+                    VerticalAlignment="Stretch">
+            <Grid Height="110"
+                  Margin="-8 0 -8 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!--Info Card-->
+                <!--First Patient Card-->
                 <Border Style="{StaticResource infoCard_newdashboard}">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -145,19 +219,28 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Style="{StaticResource infoCardStack_newdashboard}">
-                            <TextBlock x:Name="Fist_patient" Style="{StaticResource infoCardTitle_newdashboard}" />
-                            <TextBlock x:Name="time_patient_1" Style="{StaticResource infoCardText_newdashboard}" />
+                            <TextBlock x:Name="First_patient"
+                                       Style="{StaticResource infoCardTitle_newdashboard}"/>
+                            <TextBlock x:Name="time_patient_1"
+                                       Style="{StaticResource infoCardText_newdashboard}"/>
                         </StackPanel>
                         <StackPanel VerticalAlignment="Center">
-                            <Button Background="Transparent" HorizontalAlignment=" Right" BorderBrush="Transparent" Margin="10" Click="Upcoming_Patient_1">
-                                <fa:ImageAwesome Icon="Eye" Style="{StaticResource infoCardIcon_newdashboard}" Margin="0"/>
+                            <Button Background="Transparent"
+                                    HorizontalAlignment="Right"
+                                    BorderBrush="Transparent"
+                                    Margin="10"
+                                    Click="Upcoming_Patient_1">
+                                <fa:ImageAwesome Icon="Eye"
+                                                 Style="{StaticResource infoCardIcon_newdashboard}"
+                                                 Margin="0"/>
                             </Button>
                         </StackPanel>
                     </Grid>
                 </Border>
 
-                <!--Info Card-->
-                <Border Grid.Column="1" Style="{StaticResource infoCard_newdashboard}">
+                <!--Second Patient Card-->
+                <Border Grid.Column="1"
+                        Style="{StaticResource infoCard_newdashboard}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -165,20 +248,28 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Style="{StaticResource infoCardStack_newdashboard}">
-                            <TextBlock Text="Mallak" Style="{StaticResource infoCardTitle_newdashboard}" />
-                            <TextBlock Text="9:30" Style="{StaticResource infoCardText_newdashboard}" />
+                            <TextBlock x:Name="Second_patient"
+                                       Style="{StaticResource infoCardTitle_newdashboard}"/>
+                            <TextBlock x:Name="time_patient_2"
+                                       Style="{StaticResource infoCardText_newdashboard}"/>
                         </StackPanel>
-
                         <StackPanel VerticalAlignment="Center">
-                            <Button Background="Transparent" HorizontalAlignment=" Right" BorderBrush="Transparent" Margin="10">
-                                <fa:ImageAwesome Icon="Eye" Style="{StaticResource infoCardIcon_newdashboard}" Margin="0"/>
+                            <Button Background="Transparent"
+                                    HorizontalAlignment="Right"
+                                    BorderBrush="Transparent"
+                                    Margin="10"
+                                    Click="Upcoming_Patient_2">
+                                <fa:ImageAwesome Icon="Eye"
+                                                 Style="{StaticResource infoCardIcon_newdashboard}"
+                                                 Margin="0"/>
                             </Button>
                         </StackPanel>
                     </Grid>
                 </Border>
 
-                <!--Info Card-->
-                <Border Grid.Column="2" Style="{StaticResource infoCard_newdashboard}">
+                <!--Third Patient Card-->
+                <Border Grid.Column="2"
+                        Style="{StaticResource infoCard_newdashboard}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -186,73 +277,108 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Style="{StaticResource infoCardStack_newdashboard}">
-                            <TextBlock Text="Name" Style="{StaticResource infoCardTitle_newdashboard}" />
-                            <TextBlock Text=":" Style="{StaticResource infoCardText_newdashboard}" />
+                            <TextBlock x:Name="Third_patient"
+                                       Style="{StaticResource infoCardTitle_newdashboard}"/>
+                            <TextBlock x:Name="time_patient_3"
+                                       Style="{StaticResource infoCardText_newdashboard}"/>
                         </StackPanel>
-
                         <StackPanel VerticalAlignment="Center">
-                            <Button Background="Transparent" HorizontalAlignment=" Right" BorderBrush="Transparent" Margin="10">
-                                <fa:ImageAwesome Icon="Eye" Style="{StaticResource infoCardIcon_newdashboard}" Margin="0"/>
+                            <Button Background="Transparent"
+                                    HorizontalAlignment="Right"
+                                    BorderBrush="Transparent"
+                                    Margin="10"
+                                    Click="Upcoming_Patient_3">
+                                <fa:ImageAwesome Icon="Eye"
+                                                 Style="{StaticResource infoCardIcon_newdashboard}"
+                                                 Margin="0"/>
                             </Button>
                         </StackPanel>
                     </Grid>
                 </Border>
             </Grid>
 
-            <Border CornerRadius="15" Background="#FDFDFD" Padding="15" Margin="0 20 0 0">
+            <Border CornerRadius="15"
+                    Background="#FDFDFD"
+                    Padding="15"
+                    Margin="0 20 0 0">
                 <Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Left">
                         <!--Search Textbox-->
-                        <Grid Width="300" HorizontalAlignment="Left">
-                            <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
-                                    Panel.ZIndex="1" Text=" Search Here.."  />
-                            <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch_newdashboard}"/>
-                            <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
-                            Margin="0 0 15 0" Foreground="#7b5cd6" HorizontalAlignment="Right"/>
+                        <Grid Width="300"
+                              HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0"
+                                       VerticalAlignment="Center"
+                                       Foreground="#b0b9c6"
+                                       IsHitTestVisible="False"
+                                       Panel.ZIndex="1"
+                                       Text=" Search Here.."/>
+                            <TextBox x:Name="txtSearch"
+                                     Style="{StaticResource textboxSearch_newdashboard}"/>
+                            <Icon:PackIconMaterial Kind="Magnify"
+                                                   Width="15"
+                                                   Height="15"
+                                                   VerticalAlignment="Center"
+                                                   Margin="0 0 15 0"
+                                                   Foreground="#7b5cd6"
+                                                   HorizontalAlignment="Right"/>
 
                         </Grid>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="0 0 20 0">
                         <Button Style="{StaticResource button_newdashboard}">
                             <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="BookmarkOutline" Style="{StaticResource buttonIcon_newdashboard}" />
-                                <TextBlock Text="Save Profile" Style="{StaticResource buttonText_newdashboard}" />
+                                <fa:ImageAwesome Icon="BookmarkOutline"
+                                                 Style="{StaticResource buttonIcon_newdashboard}"/>
+                                <TextBlock Text="Save Profile"
+                                           Style="{StaticResource buttonText_newdashboard}"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource button_newdashboard}" Background="#202934" Foreground="#e9e9e9">
+                        <Button Style="{StaticResource button_newdashboard}"
+                                Background="#202934"
+                                Foreground="#e9e9e9">
                             <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="CommentOutline" Style="{StaticResource buttonIcon_newdashboard}" />
-                                <TextBlock Text="Contact" Style="{StaticResource buttonText_newdashboard}" />
+                                <fa:ImageAwesome Icon="CommentOutline"
+                                                 Style="{StaticResource buttonIcon_newdashboard}"/>
+                                <TextBlock Text="Contact"
+                                           Style="{StaticResource buttonText_newdashboard}"/>
                             </StackPanel>
                         </Button>
 
-                        <fa:ImageAwesome Icon="EllipsisV" Style="{StaticResource iconBar_newdashboard}" />
+                        <fa:ImageAwesome Icon="EllipsisV"
+                                         Style="{StaticResource iconBar_newdashboard}"/>
                     </StackPanel>
                 </Grid>
             </Border>
 
             <Grid Margin="-8 0 -8 0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    
+                    <ColumnDefinition Width="696*"/>
+                    <ColumnDefinition Width="695*"/>
+
                 </Grid.ColumnDefinitions>
 
                 <!--Social Card-->
-                <Border Style="{StaticResource socialCard_newdashboard}">
+                <Border Style="{StaticResource socialCard_newdashboard}"
+                        Margin="8,20,8,0">
                     <Grid>
                         <StackPanel>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                          HorizontalScrollBarVisibility="Disabled">
                                 <StackPanel Height="500">
-                                    <fa:ImageAwesome Icon="EllipsisH" Style="{StaticResource socialCardIconBar_newdashboard}" />
+                                    <fa:ImageAwesome Icon="EllipsisH"
+                                                     Style="{StaticResource socialCardIconBar_newdashboard}"/>
                                     <StackPanel Style="{StaticResource socialCardStack_newdashboard}">
                                         <!--<fa:ImageAwesome Icon="YoutubePlay" Foreground="Red" Style="{StaticResource socialCardIconTitle_newdashboard}" />-->
-                                        <TextBlock Text="Ontology" Style="{StaticResource socialCardTitle_newdashboard}" />
+                                        <TextBlock Text="Ontology"
+                                                   Style="{StaticResource socialCardTitle_newdashboard}"/>
                                     </StackPanel>
                                     <StackPanel>
-                                        
+
                                     </StackPanel>
                                 </StackPanel>
                             </ScrollViewer>
@@ -286,12 +412,16 @@
                 </Border>
 
                 <!--Social Card-->
-                <Border Grid.Column="1" Style="{StaticResource socialCard_newdashboard}" >
+                <Border Grid.Column="1"
+                        Style="{StaticResource socialCard_newdashboard}"
+                        Margin="8,20,8,0">
                     <StackPanel>
-                        <fa:ImageAwesome Icon="EllipsisH" Style="{StaticResource socialCardIconBar_newdashboard}" />
+                        <fa:ImageAwesome Icon="EllipsisH"
+                                         Style="{StaticResource socialCardIconBar_newdashboard}"/>
                         <StackPanel Style="{StaticResource socialCardStack_newdashboard}">
                             <!--<fa:ImageAwesome Icon="Instagram" Foreground="#512DA8" Style="{StaticResource socialCardIconTitle_newdashboard}" />-->
-                            <TextBlock Text="recent research" Style="{StaticResource socialCardTitle_newdashboard}" />
+                            <TextBlock Text="recent research"
+                                       Style="{StaticResource socialCardTitle_newdashboard}"/>
                         </StackPanel>
 
                         <!--<TextBlock Text="" Style="{StaticResource socialCardCounterTitle_newdashboard}" />-->

@@ -93,7 +93,7 @@ namespace Auradent.Windows
                 Console.WriteLine("Selected Name: " + selectedItem);
             }
             // split every part of selected item to get the id and phone number and name 
-            var parts = selectedItem.Split(new[] { '(', ',', ')' }, StringSplitOptions.RemoveEmptyEntries);
+           var parts = selectedItem.Split(new[] { '(', ',', ')' }, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length >= 3)
             {
                 string name = parts[0].Trim();

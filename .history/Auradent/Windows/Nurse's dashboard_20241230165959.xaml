@@ -347,29 +347,29 @@
                         </Button>
 
                         <!-- Top Right Buttons -->
-                        <StackPanel Grid.Column="1"
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Top"
-                                    Margin="10">
-                                <!-- Refresh Button -->
-                                <Button Style="{StaticResource button}"
-                                        Margin="0,0,10,0"
-                                        Click="Refresh_btn">
-                                        <fa:ImageAwesome Icon="Refresh"
-                                                         Width="28"
-                                                         Height="28"
-                                                         Foreground="#f9f9f9"/>
-                                </Button>
+                        <StackPanel Grid.Column="1" 
+                                  Orientation="Horizontal" 
+                                  HorizontalAlignment="Right" 
+                                  VerticalAlignment="Top" 
+                                  Margin="10">
+                            <!-- Refresh Button -->
+                            <Button Style="{StaticResource button}"
+                                    Margin="0,0,10,0"
+                                    Click="Refresh_btn">
+                                <fa:ImageAwesome Icon="Refresh"
+                                                Width="28"
+                                                Height="28"
+                                                Foreground="#f9f9f9"/>
+                            </Button>
 
-                                <!-- Close Button -->
-                                <Button Style="{StaticResource button}"
-                                        Click="close_btn">
-                                        <fa:ImageAwesome Icon="TimesCircle"
-                                                         Width="28"
-                                                         Height="28"
-                                                         Foreground="#f9f9f9"/>
-                                </Button>
+                            <!-- Close Button -->
+                            <Button Style="{StaticResource button}"
+                                    Click="close_btn">
+                                <fa:ImageAwesome Icon="TimesCircle"
+                                                Width="28"
+                                                Height="28"
+                                                Foreground="#f9f9f9"/>
+                            </Button>
                         </StackPanel>
                 </Grid>
         </Grid>

@@ -158,10 +158,10 @@
                 </Setter>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Foreground" Value="#759DC0" />
+                        <Setter Property="Foreground" Value="#20415C" />
                     </Trigger>
                     <Trigger Property="IsMouseCaptured" Value="True">
-                        <Setter Property="Foreground" Value="#759DC0" />
+                        <Setter Property="Foreground" Value="#20415C" />
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -218,6 +218,8 @@
                 <Setter Property="Foreground" Value="#FF333333"/>
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Width" Value="600"/>
+                <Setter Property="Height" Value="600"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Calendar}">
@@ -321,8 +323,8 @@
 
 
             <Style x:Key="CalendarCalendarDayButtonStyle1" TargetType="{x:Type CalendarDayButton}">
-                <Setter Property="Width" Value="40"/>
-                <Setter Property="Height" Value="40"/>
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="Height" Value="80"/>
                 <Setter Property="FontSize" Value="18"/>
                 <Setter Property="Margin" Value="5"/>
                 <Setter Property="Cursor" Value="Hand"/>
@@ -905,7 +907,7 @@
 
 
             <Style x:Key="buttonMainBlue" TargetType="Button" BasedOn="{StaticResource buttonMain}">
-                <Setter Property="Background" Value="#759DC0" />
+                <Setter Property="Background" Value="#20415C" />
                 <Setter Property="Foreground" Value="#ffffff" />
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
@@ -962,11 +964,11 @@
                 </Setter>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#AC0F0F" />
+                        <Setter Property="Background" Value="#4679A3" />
                         <Setter Property="Foreground" Value="#FFFFFF" />
                     </Trigger>
                     <Trigger Property="IsMouseCaptured" Value="True">
-                        <Setter Property="Background" Value="#921C1B" />
+                        <Setter Property="Background" Value="#4679A3" />
                         <Setter Property="Foreground" Value="#FFFFFF" />
                     </Trigger>
                 </Style.Triggers>
@@ -1718,7 +1720,7 @@
             <BooleanToVisibilityConverter x:Key="NullToVis" />
 
             <Style x:Key="addButton" TargetType="Button">
-                <Setter Property="Background" Value="#6741D9" />
+                <Setter Property="Background" Value="#20415C" />
                 <Setter Property="Foreground" Value="#ffffff" />
                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                 <Setter Property="Height" Value="35" />

@@ -175,6 +175,62 @@ namespace Auradent.Windows
                 }
             }
         }
+
+        private void Dashboard_btn(object sender, RoutedEventArgs e)
+        {
+            newdoctordashboard newdoctordashboard = new newdoctordashboard
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Doctor Dashboard"
+            };
+            newdoctordashboard.Show();
+            this.Close();
+        }
+
+        private void Report_btn(object sender, RoutedEventArgs e)
+        {
+            Report report = new Report
+            {
+                WindowState = WindowState.Normal,
+                Title = "Report"
+            };
+            report.Show();
+            
+        }
+
+        private void Calender_btn(object sender, RoutedEventArgs e)
+        {
+            Nurse_s_dashboard nurse_S_Dashboard = new Nurse_s_dashboard
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Nurse's Dashboard"
+            };
+            nurse_S_Dashboard.Show();
+            this.Close();
+        }
+
+        private void Logout_btn(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Login"
+            };
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void Addnewpatient_btn(object sender, RoutedEventArgs e)
+        {
+            NewPatient newPatient = new NewPatient
+            {
+                WindowState = WindowState.Normal,
+                Title = "New Patient"
+            };
+            newPatient.Show();
+        }
+
+        
     }
 
     public class Member

@@ -141,13 +141,13 @@
                                 <StackPanel Orientation="Horizontal"
                                             Margin="0 0 0 20">
                                     <Border CornerRadius="50"
-                                            BorderThickness="1.5"
+                                            BorderThickness="0"
                                             BorderBrush="#EFEFEF"
                                             Width="50"
                                             Height="50">
                                         <Ellipse>
                                             <Ellipse.Fill>
-                                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\View\Images\DESIGN1.png"/>
+                                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final\Auradent\View\Images\Designer.png" Stretch="UniformToFill"/>
                                             </Ellipse.Fill>
                                         </Ellipse>
                                     </Border>

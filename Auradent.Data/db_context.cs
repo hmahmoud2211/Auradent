@@ -17,7 +17,7 @@ namespace Auradent.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
-            optionsBuilder.UseMySql("server=localhost;database=auradent_db_final;user=root;password=Aabbcc_112233", serverVersion);
+            optionsBuilder.UseMySql("server=localhost;database=auradent_db_final;user=root;password=Hazem@2003", serverVersion);
         }
 
 

@@ -97,6 +97,7 @@
 
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right">
+                
                 <Image  Margin="0 0 15 0"
                         Style="{StaticResource iconApp_newdashboard}"/>
                 <Image  Style="{StaticResource iconApp_newdashboard}"/>
@@ -169,7 +170,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton_newdashboard}">
                     <StackPanel>
                         <fa:ImageAwesome Icon="Money"
                                          Foreground="#3b3b3b"
@@ -181,7 +182,7 @@
                 </Button>
 
                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
-                        Margin="0 100"
+                        Margin="0 80"
                         BorderBrush="{x:Null}"
                         Background="{x:Null}"
                         Foreground="Black"
@@ -331,24 +332,11 @@
                                 Margin="0 0 20 0">
                         <Button Style="{StaticResource button_newdashboard}">
                             <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="BookmarkOutline"
-                                                 Style="{StaticResource buttonIcon_newdashboard}"/>
-                                <TextBlock Text="Save Profile"
-                                           Style="{StaticResource buttonText_newdashboard}"/>
+                                <fa:ImageAwesome Icon="CalendarOutline" Style="{StaticResource buttonIcon_newdashboard}" />
+                                <TextBlock Text="Total " Style="{StaticResource buttonText_newdashboard}" />
+                                <TextBlock Text="8" Style="{StaticResource buttonText_newdashboard}" />
                             </StackPanel>
                         </Button>
-
-                        <Button Style="{StaticResource button_newdashboard}"
-                                Background="#202934"
-                                Foreground="#e9e9e9">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="CommentOutline"
-                                                 Style="{StaticResource buttonIcon_newdashboard}"/>
-                                <TextBlock Text="Contact"
-                                           Style="{StaticResource buttonText_newdashboard}"/>
-                            </StackPanel>
-                        </Button>
-
                         <fa:ImageAwesome Icon="EllipsisV"
                                          Style="{StaticResource iconBar_newdashboard}"/>
                     </StackPanel>

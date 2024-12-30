@@ -145,6 +145,7 @@ namespace Auradent.Windows
             {
                 MessageBox.Show("Appointment ID already exists", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            
         }
     }
 }

@@ -62,7 +62,7 @@ namespace Auradent.Windows
                 PatientAgeText.Text = (DateTime.Now.Year - _patient.DateOfBirth.Year).ToString();
                 PatientGenderText.Text = _patient.Gender;
                 PatientPhoneText.Text = _patient.PatientPhone;
-                PatientAddressText.Text = _patient.PatientAddress;
+               
 
                 // Update chronic diseases
                 if (!string.IsNullOrEmpty(_patient.chronic_diseases))
@@ -152,6 +152,72 @@ namespace Auradent.Windows
         {
             // Simply reload all patient data
             LoadPatientData();
+        }
+
+        private void InfoCard_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
+        {
+            PreviousVisits previousVisits = new PreviousVisits(_patient.PatientName)
+            {
+                WindowState = WindowState.Normal,
+                Title = "Previous Visits - " + _patient.PatientName
+            };
+            previousVisits.Show();
+
+        }
+
+        private void Dashboard_btn(object sender, RoutedEventArgs e)
+        {
+            newdoctordashboard newdoctordashboard = new newdoctordashboard
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Doctor Dashboard"
+            };
+            newdoctordashboard.Show();
+            this.Close();
+        }
+
+        private void Report_btn(object sender, RoutedEventArgs e)
+        {
+            Report report = new Report
+            {
+                WindowState = WindowState.Normal,
+                Title = "Report"
+            };
+            report.Show();
+
+        }
+
+        private void Calender_btn(object sender, RoutedEventArgs e)
+        {
+            Nurse_s_dashboard nurse_S_Dashboard = new Nurse_s_dashboard
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Nurse's Dashboard"
+            };
+            nurse_S_Dashboard.Show();
+            this.Close();
+        }
+
+        private void Logout_btn(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Login"
+            };
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void Search_btn(object sender, RoutedEventArgs e)
+        {
+            Search search = new Search
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Search"
+            };  
+            search.Show();
+            this.Close();
         }
     }
 }

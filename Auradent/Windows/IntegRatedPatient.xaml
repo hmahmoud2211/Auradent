@@ -49,18 +49,16 @@
                         Margin="0 0 0 10">
                     <StackPanel>
                         <Button Style="{StaticResource menuButton_newdashboard}"
-                                Margin="0 20 0 0"
-                                Background="#5a5080 "
-                                Foreground="#FFFFFF">
+                                Margin="0 20 0 0" Click="Dashboard_btn">
                             <StackPanel>
                                 <fa:ImageAwesome Icon="Home"
-                                                 Style="{StaticResource menuButtonIcon_newdashboard}"/>
+                                                 Style="{StaticResource menuButtonIcon_newdashboard}" Foreground="#3b3b3b"/>
                                 <TextBlock Text="Dashboard"
-                                           Style="{StaticResource menuButtonText_newdashboard}"/>
+                                           Style="{StaticResource menuButtonText_newdashboard}" Foreground="#3b3b3b"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton_newdashboard}">
+                        <Button Style="{StaticResource menuButton_newdashboard}" Click="Search_btn">
                             <StackPanel>
                                 <fa:ImageAwesome Icon="Search"
                                                  Foreground="#3b3b3b"
@@ -72,7 +70,7 @@
                         </Button>
 
                         <Button Style="{StaticResource menuButton_newdashboard}"
-                                Click="ReportBtn">
+                                Click="Report_btn">
                             <StackPanel>
                                 <fa:ImageAwesome Icon="File"
                                                  Foreground="#3b3b3b"
@@ -83,7 +81,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton_newdashboard}">
+                        <Button Style="{StaticResource menuButton_newdashboard}" Click="Calender_btn">
                             <StackPanel>
                                 <fa:ImageAwesome Icon="Calendar"
                                                  Foreground="#3b3b3b"
@@ -119,10 +117,10 @@
 
 
                         <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
-                                Margin="0 100"
+                                Margin="0 70"
                                 BorderBrush="{x:Null}"
                                 Background="{x:Null}"
-                                Foreground="Black">
+                                Foreground="Black" Click="Logout_btn">
                             <StackPanel>
                                 <materialDesign:PackIcon Kind="ExitToApp"
                                                          Margin="10 0"
@@ -206,7 +204,7 @@
                                  Height="45"
                                  Margin="0 0 7 0">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png"/>
+                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final\Auradent\rb_5856.png"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
@@ -510,7 +508,7 @@
                                           Percentage="90%"
                                           BottomText="10 / 20"
                                           Icon="Virus"
-                                          Value="9"/>
+                                          Value="9" MouseDoubleClick="InfoCard_MouseDoubleClick_1"/>
 
                 </Grid>
                 <!--Right Section-->
@@ -644,10 +642,6 @@
                                                 <ColumnDefinition Width="100"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Text="Address: "
-                                                       FontSize="16"
-                                                       FontWeight="Bold"
-                                                       Foreground="White"/>
                                             <TextBlock x:Name="PatientAddressText"
                                                        Grid.Column="1"
                                                        FontSize="16"
@@ -680,7 +674,7 @@
                                 Height="125"
                                 Margin="25 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png"/>
+                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final\Auradent\rb_5856.png"/>
                             </Border.Background>
                         </Border>
 

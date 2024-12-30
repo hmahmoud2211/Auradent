@@ -72,8 +72,8 @@ namespace Auradent.Windows
                     PatientPhone = phone_txt.Textcontent,
                     PatientID = int.Parse(national_id_txt.Textcontent[^4..]),
                     DateOfBirth = date_txt.SelectedDate ?? DateTime.Now,
-                    chronic_diseases = "ta3ban",
-                    PatientAddress = "6 October",
+                    chronic_diseases = "",
+                    
                 };
 
                 // Create new Medical Record
@@ -111,6 +111,14 @@ namespace Auradent.Windows
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
+
+            ExistPatient existPatient = new ExistPatient
+            {
+                WindowState = WindowState.Normal,
+                Title = "Existing Patient"
+            };
+            existPatient.Show();
+            this.Close();
         }
 
         private void cancel_btn(object sender, RoutedEventArgs e)

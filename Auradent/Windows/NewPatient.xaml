@@ -20,15 +20,13 @@
         </Grid.ColumnDefinitions>
 
         <!--Left Section-->
-        <Border Background="#d7effb" CornerRadius="25 0 0 25" Grid.RowSpan="2">
+        <Border Background="#20415C" CornerRadius="25 0 0 25" Grid.RowSpan="2">
             <StackPanel VerticalAlignment="Center">
-                <md:PackIcon Kind="User" Width="150" Height="150" Foreground="#3F6F95" Margin="100 0 100 0"/>
-                <TextBlock Text="New Patient" TextAlignment="Center" FontWeight="SemiBold" FontSize="30" Foreground="#3F6F95" />
-                <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Foreground="#363636" Margin="0 20 0 20" Text="Thank You for choosing AuraDent"/>
+                <md:PackIcon Kind="User" Width="150" Height="150" Foreground="White" Margin="100 0 100 0"/>
+                <TextBlock Text="New Patient" TextAlignment="Center" FontWeight="SemiBold" FontSize="30" Foreground="White" />
+                <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Foreground="White" Margin="0 20 0 20" Text="Thank You for choosing AuraDent"/>
 
-                <Button Style="{StaticResource buttonWhite}">
-                    <md:PackIcon Kind="KeyboardArrowRight" Width="auto" Height="auto" Foreground="#3F6F95" />
-                </Button>
+
 
 
             </StackPanel>
@@ -40,7 +38,7 @@
                 <Button Grid.Column="1" Style="{StaticResource button}" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="4,4,13,4" Background="Transparent" Click="close_btn">
                     <fa:ImageAwesome Icon="TimesCircle" Width="21" Height="28" Foreground="#759DC0" />
                 </Button>
-                
+
                 <Button Grid.Column="1" Style="{StaticResource button}" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="4,4,40,4" Background="Transparent">
                     <fa:ImageAwesome Icon="MinusCircle" Width="21" Height="28" Foreground="#759DC0" />
                 </Button>
@@ -68,7 +66,7 @@
                     <TextBlock Grid.Row="3" Text="Date of Birth" Style="{StaticResource text}" Foreground="#759DC0"/>
                     <TextBlock Grid.Row="4" Text="Mobile" Style="{StaticResource text}" Foreground="#759DC0"/>
                     <TextBlock Grid.Row="5" Text="Natioanl ID" Style="{StaticResource text}" Foreground="#759DC0"/>
-                    
+
                     <uc:MyTextBox x:Name="Name_txt" Grid.Column="1" Grid.Row="0" Hint="Name"/>
 
                     <DatePicker x:Name="date_txt" Grid.Row="3" Grid.Column="1" Margin="0 10" BorderBrush="DarkGray"/>
@@ -95,7 +93,7 @@
 
                         <Button Style="{StaticResource buttonMain}" Margin="0 0 10 0" Content="Cancel" Click="cancel_btn" />
 
-                        <Button Grid.Column="1" Style="{StaticResource buttonMainBlue}" Margin="10 0 0 0" Content="Save" Click="Save_btn"/>
+                        <Button Grid.Column="1" Style="{StaticResource buttonMainBlue}" Margin="10,0,0,0" Content="Save" Click="Save_btn" HorizontalAlignment="Left" Width="61"/>
                     </Grid>
 
 

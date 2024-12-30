@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="View\Pic\**" />
+		<EmbeddedResource Remove="View\Pic\**" />
+		<None Remove="View\Pic\**" />
+		<Page Remove="View\Pic\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Green Professional Gradient Login Section Website UI Desktop Prototype %281%29.png" />
+		<None Remove="pages\Bold Blue Modern Accounting Platform Dashboard Desktop Prototype.png" />
+		<None Remove="pages\Designer.png" />
+		<None Remove="pages\finance.png" />
+		<None Remove="pages\Green and Orange Simple Medical Logo.png" />
+		<None Remove="pages\green black minimalist finance coin logo design %281%29.png" />
+		<None Remove="pages\green black minimalist finance coin logo design %282%29.png" />
+		<None Remove="pages\inventory.png" />
+		<None Remove="pages\treatment_plan.png" />
+		<None Remove="pages\withoutBackground.png" />
+		<None Remove="View\Usercontrols\Artboard 1.png" />
+		<None Remove="View\Usercontrols\DESIGN1.png" />
+		<None Remove="View\Usercontrols\Green and Orange Simple Medical Logo %285%29.png" />
+		<None Remove="View\Usercontrols\Green and Orange Simple Medical Logo.png" />
+		<None Remove="View\Usercontrols\green black minimalist finance coin logo design %283%29.png" />
+		<None Remove="View\Usercontrols\rb_5856.png" />
+		<None Remove="View\Usercontrols\WhatsApp Image 2024-11-07 at 15.16.58_5a21221c.jpg" />
+		<None Remove="View\Usercontrols\withoutBackground.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Green Professional Gradient Login Section Website UI Desktop Prototype (1).png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="font-awesome" Version="4.7.0" />
+		<PackageReference Include="FontAwesome" Version="4.7.0" />
+		<PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+		<PackageReference Include="LiveCharts" Version="0.9.7" />
+		<PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+		<PackageReference Include="MahApps.Metro" Version="2.4.10" />
+		<PackageReference Include="MahApps.Metro.IconPacks" Version="5.1.0" />
+		<PackageReference Include="MaterialDesignColors" Version="3.1.0" />
+		<PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+		<PackageReference Include="Microsoft.VisualStudio.Services.NuGet.CredentialProvider" Version="0.37.0" />
+		<PackageReference Include="MySql.Data" Version="9.1.0" />
+		<PackageReference Include="MySql.Data.EntityFramework" Version="9.1.0" />
+		<PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+		<PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="MySqlConnector" Version="2.4.0" />
+		<PackageReference Include="NuGet.Frameworks" Version="6.12.1" />
+		<PackageReference Include="OxyPlot.Wpf" Version="2.2.0" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+		<PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+		<PackageReference Include="WebGrease" Version="1.6.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Auradent.core\Auradent.core.csproj" />
+		<ProjectReference Include="..\Auradent.Data\Auradent.Data.csproj" />
+	</ItemGroup>
+
+</Project>

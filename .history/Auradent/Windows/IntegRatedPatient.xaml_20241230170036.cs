@@ -150,8 +150,14 @@ namespace Auradent.Windows
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            // Simply reload all patient data
+            // Reload all patient data
             LoadPatientData();
+            LoadChronicDiseases();
+            LoadMedicalRecordData();
+            LoadTeethData();
+
+            // Update UI
+            UpdatePatientInfoDisplay();
         }
     }
 }

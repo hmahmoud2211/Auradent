@@ -207,11 +207,15 @@ namespace Auradent.Windows
 
         private void Refresh_btn(object sender, RoutedEventArgs e)
         {
-            // Simply reload the current date's data
-            if (mainCalendar.SelectedDate.HasValue)
-            {
-                LoadSelectedDate(mainCalendar.SelectedDate.Value);
-            }
+            // Get the currently selected date
+            var selectedDate = mainCalendar.SelectedDate ?? DateTime.Today;
+            
+            // Reload appointments for the selected date
+            LoadAppointments(selectedDate);
+            
+            // Update UI elements
+            UpdateDateDisplay(selectedDate);
+            UpdateAppointmentCount();
         }
     }
 

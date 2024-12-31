@@ -219,5 +219,16 @@ namespace Auradent.Windows
             search.Show();
             this.Close();
         }
+
+        private void chatbot_btn(object sender, RoutedEventArgs e)
+        {
+            chatbot chatbot = new chatbot
+            {
+                WindowState = WindowState.Normal,
+                Title = "Chatbot"
+            };
+            chatbot.Show();
+            this.Close();
+        }
     }
 }

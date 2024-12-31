@@ -61,13 +61,9 @@ namespace Auradent.Windows
         {
             string[] colors = new[]
             {
-                "#1098AD", // Blue
+                
                 "#1E88E5", // Light Blue
-                "#FF8F00", // Orange
-                "#FF5252", // Red
-                "#0CA678", // Green
-                "#6741D9", // Purple
-                "#FF6D00"  // Dark Orange
+               
             };
 
             return colors[(index - 1) % colors.Length];
@@ -230,7 +226,16 @@ namespace Auradent.Windows
             newPatient.Show();
         }
 
-
+        private void cahtbot_btn(object sender, RoutedEventArgs e)
+        {
+            chatbot chatbot = new chatbot
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Chatbot"
+            };
+            chatbot.Show();
+            this.Close();
+        }
     }
 
     public class Member

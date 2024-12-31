@@ -147,7 +147,7 @@
                                             Height="50">
                                         <Ellipse>
                                             <Ellipse.Fill>
-                                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\View\Images\Designer.png" Stretch="UniformToFill"/>
+                                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final_final\Auradent\View\Images\Designer.png" Stretch="UniformToFill"/>
                                             </Ellipse.Fill>
                                         </Ellipse>
                                     </Border>

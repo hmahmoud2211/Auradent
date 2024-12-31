@@ -1,0 +1,9 @@
+CREATE TABLE LabTests (
+    LabTestID INT IDENTITY(1,1) PRIMARY KEY,
+    PatientID INT NOT NULL,
+    ImagePath NVARCHAR(MAX) NOT NULL,
+    OcrText NVARCHAR(MAX) NOT NULL,
+    UploadDate DATETIME NOT NULL,
+    TestType NVARCHAR(50) NOT NULL,
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID)
+); 

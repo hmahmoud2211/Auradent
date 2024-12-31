@@ -204,7 +204,7 @@
                                  Height="45"
                                  Margin="0 0 7 0">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final\Auradent\rb_5856.png"/>
+                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
@@ -674,7 +674,7 @@
                                 Height="125"
                                 Margin="25 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final\Auradent\rb_5856.png"/>
+                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png"/>
                             </Border.Background>
                         </Border>
 

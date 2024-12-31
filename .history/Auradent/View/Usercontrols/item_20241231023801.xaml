@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="Auradent.View.Usercontrols.Item"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Auradent.View.Usercontrols"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d"
+             Name="item">
+
+    <Grid Margin="30,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Icon -->
+        <fa:ImageAwesome Icon="{Binding Path=Icon, ElementName=item}"
+                         Width="20"
+                         Height="20"
+                         VerticalAlignment="Top"
+                         Foreground="#f1f1f1"
+                         Margin="0,3,0,0"/>
+
+        <!-- Title and Time -->
+        <StackPanel Grid.Column="1"
+                    Margin="10,0">
+            <TextBlock FontSize="16"
+                       Foreground="{Binding Path=Color, ElementName=item}"
+                       Text="{Binding Path=Title, ElementName=item}"/>
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,5,0,0">
+                <fa:ImageAwesome Icon="{Binding Path=IconBell, ElementName=item}"
+                                 Width="12"
+                                 Height="12"
+                                 Foreground="{Binding Path=Color, ElementName=item}"/>
+
+                <TextBlock FontSize="12"
+                           Foreground="{Binding Path=Color, ElementName=item}"
+                           Text="{Binding Path=Time, ElementName=item}"
+                           Margin="8,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Status Checkbox -->
+        <CheckBox Grid.Column="2"
+                  IsChecked="{Binding Path=IsChecked, ElementName=item}"
+                  VerticalAlignment="Center"
+                  Margin="10,0,0,0"
+                  Checked="CheckBox_Checked"
+                  Unchecked="CheckBox_Unchecked">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <Style.Triggers>
+                        <Trigger Property="IsChecked"
+                                Value="True">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <fa:ImageAwesome Icon="CheckCircle"
+                                                     Foreground="#4CAF50"
+                                                     Width="20"
+                                                     Height="20"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsChecked"
+                                Value="False">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <fa:ImageAwesome Icon="Circle"
+                                                     Foreground="#f1f1f1"
+                                                     Width="20"
+                                                     Height="20"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+    </Grid>
+</UserControl>

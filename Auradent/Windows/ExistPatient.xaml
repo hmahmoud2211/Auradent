@@ -19,7 +19,7 @@
                 Padding="30"
                 CornerRadius="25 0 0 25">
             <StackPanel VerticalAlignment="Center">
-                <Image Source="C:\Users\user\Source\Repos\Auradent_final\Auradent\View\Images\cartoon-woman-pretty.png"
+                <Image Source="C:\Users\DELL\Source\Repos\Auradent\Auradent\View\Images\cartoon-woman-pretty.png"
                        Width="160"
                        Height="160"
                        Margin="0 0 0 40"/>

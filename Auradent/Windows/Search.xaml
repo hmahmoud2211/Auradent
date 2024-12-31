@@ -87,7 +87,7 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource menuButton_newdashboard}">
+                    <Button Style="{StaticResource menuButton_newdashboard}" Click="Button_Click">
                         <StackPanel>
                             <fa:ImageAwesome Icon="Comments"
                                              Foreground="#3b3b3b"
@@ -209,28 +209,10 @@
                            Margin="0 -1 0 10"/>
 
                 <!--Tab Buttons-->
-                <StackPanel Grid.Row="2"
-                            Orientation="Horizontal"
-                            Margin="0 10 0 0">
-                    <Button Content="Patients"
-                            Style="{StaticResource tabButton}"/>
-                    <Button Content="Pers.Info"
-                            Style="{StaticResource tabButton}"/>
-                    <Button Content="Report"
-                            Style="{StaticResource tabButton}"/>
-                    <Button Content="Scans"
-                            Style="{StaticResource tabButton}"/>
-                </StackPanel>
+                
 
                 <!--Counter Title-->
-                <TextBlock Text="AuraDent Patients"
-                           Grid.Row="4"
-                           FontSize="18"
-                           FontWeight="SemiBold"
-                           Foreground="#121518"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"/>
-
+                
                 <TextBlock Text="Filter By"
                            Grid.Row="4"
                            FontSize="18"
@@ -351,15 +333,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource gridEditButton}">
-                                            <Icon:PackIconMaterial Kind="PencilOutline"
-                                                                   Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                        <Button Margin="5 0 0 0"
-                                                Style="{StaticResource gridRemoveButton}">
-                                            <Icon:PackIconMaterial Kind="DeleteOutline"
-                                                                   Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
+                                       
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

@@ -116,6 +116,7 @@ namespace Auradent.pages
 
             // Show the new window
             newmainWindow.Show();
+            Window.GetWindow(this)?.Close();
         }
     }
 }

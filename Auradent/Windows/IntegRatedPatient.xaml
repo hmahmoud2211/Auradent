@@ -92,7 +92,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton_newdashboard}">
+                        <Button Style="{StaticResource menuButton_newdashboard}" Click="Button_Click_1">
                             <StackPanel>
                                 <fa:ImageAwesome Icon="Comments"
                                                  Foreground="#3b3b3b"
@@ -166,47 +166,23 @@
                         </Grid.ColumnDefinitions>
 
                         <!--Search Textbox-->
-                        <Grid>
-                            <TextBlock Margin="40 0 0 0"
-                                       VerticalAlignment="Center"
-                                       Foreground="#594f7f"
-                                       IsHitTestVisible="False"
-                                       Panel.ZIndex="1"
-                                       Text="Search..."
-                                       Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
-                            <TextBox x:Name="txtSearch"
-                                     Style="{StaticResource SearchTextBox}"/>
-                            <Icon:PackIconMaterial Kind="Magnify"
-                                                   Width="14"
-                                                   Height="14"
-                                                   Foreground="#594f7f"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   Margin="15 0 0 0"/>
-                        </Grid>
+                       
 
                         <!-- Refresh Button -->
                         <Button Grid.Column="1"
                                 Style="{StaticResource menuButton_newdashboard}"
-                                Width="45"
-                                Height="45"
+                                Width="50"
+                                Height="50"
                                 Margin="10,0,10,0"
                                 Click="RefreshButton_Click">
                             <fa:ImageAwesome Icon="Refresh"
                                              Width="20"
                                              Height="20"
-                                             Foreground="#594f7f"/>
+                                             Foreground="#594f7f" HorizontalAlignment="Center"/>
                         </Button>
 
                         <!--User Image-->
-                        <Ellipse Grid.Column="2"
-                                 Width="45"
-                                 Height="45"
-                                 Margin="0 0 7 0">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
+                       
 
                     </Grid>
                     <!--Main Middle Chart Section-->
@@ -522,17 +498,7 @@
                         CornerRadius="0 40 40 0">
                     <StackPanel>
                         <!-- Top TitleBar -->
-                        <Grid>
-                            <Icon:PackIconMaterial Kind="HeartPulse"/>
-                            <TextBlock Text="Patients"
-                                       Margin="40 0 0 0"
-                                       Style="{StaticResource titleText}"/>
-                            <Button Content="View All"
-                                    Style="{StaticResource titleButton}"
-                                    Click="Button_Click"/>
-                        </Grid>
-
-
+                        
 
 
 
@@ -655,7 +621,7 @@
 
                         <!--Bottom TitleBar-->
                         <Grid Margin="10 0 0 0">
-                            <Icon:PackIconMaterial Kind="MapMarker"/>
+                           
                             <TextBlock Text="Scans-Reports"
                                        Margin="40 0 0 0"
                                        Style="{StaticResource titleText}"/>
@@ -674,7 +640,7 @@
                                 Height="125"
                                 Margin="25 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:\Users\DELL\Source\Repos\Auradent\Auradent\rb_5856.png"/>
+                                <ImageBrush ImageSource="C:\Users\user\Source\Repos\Auradent_final_final\Auradent\rb_5856.png"/>
                             </Border.Background>
                         </Border>
 

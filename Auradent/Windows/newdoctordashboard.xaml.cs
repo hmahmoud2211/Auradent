@@ -118,9 +118,9 @@ namespace Auradent.Windows
                 var patient = dataHelperPatient.GetAllData().FirstOrDefault(p => p.PatientID == todaysAppointments.PatientID_FK);
                 if (patient != null)
                 {
-                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient
                     {
-                        Title = "Patient Details - " + patient.PatientName,
+                        Title = "Patient Details - ",
                         WindowState = WindowState.Maximized
                     };
                     integRatedPatient.Show();
@@ -154,9 +154,9 @@ namespace Auradent.Windows
                 var patient = dataHelperPatient.GetAllData().FirstOrDefault(p => p.PatientID == todaysAppointments.PatientID_FK);
                 if (patient != null)
                 {
-                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient
                     {
-                        Title = "Patient Details - " + patient.PatientName,
+                        Title = "Patient Details - " ,
                         WindowState = WindowState.Maximized
                     };
                     integRatedPatient.Show();
@@ -179,9 +179,9 @@ namespace Auradent.Windows
                 var patient = dataHelperPatient.GetAllData().FirstOrDefault(p => p.PatientID == todaysAppointments.PatientID_FK);
                 if (patient != null)
                 {
-                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient
                     {
-                        Title = "Patient Details - " + patient.PatientName,
+                        Title = "Patient Details - ",
                         WindowState = WindowState.Maximized
                     };
                     integRatedPatient.Show();
@@ -392,6 +392,87 @@ namespace Auradent.Windows
                     MessageBox.Show($"Error opening URL: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private async void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = txtSearch.Text?.Trim();
+            
+            if (string.IsNullOrEmpty(searchText))
+            {
+                lstSearchResults.ItemsSource = null;
+                return;
+            }
+
+            try
+            {
+                var patients = dataHelperPatient.GetAllData()
+                    .Where(p => 
+                        (p.PatientName != null && p.PatientName.Contains(searchText, StringComparison.OrdinalIgnoreCase)) || 
+                        p.PatientID.ToString().Contains(searchText) || 
+                        (p.PatientPhone != null && p.PatientPhone.Contains(searchText)))
+                    .Take(10)
+                    .ToList();
+
+                // For debugging
+                Console.WriteLine($"Found {patients.Count} matching patients");
+                foreach (var patient in patients)
+                {
+                    Console.WriteLine($"Patient: {patient.PatientID} - {patient.PatientName} - {patient.PatientPhone}");
+                }
+
+                lstSearchResults.ItemsSource = patients;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching patients: {ex.Message}");
+                Console.WriteLine($"Search error: {ex}");
+            }
+        }
+
+        private void lstSearchResults_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstSearchResults.SelectedItem is Patient selectedPatient)
+            {
+                try
+                {
+                    // Debug logging
+                    Console.WriteLine($"Selected patient: ID={selectedPatient.PatientID}, Name={selectedPatient.PatientName}");
+                    
+                    // Clear the selection and search
+                    lstSearchResults.SelectedItem = null;
+                    txtSearch.Text = string.Empty;
+                    
+                    // Create and show the patient details window with the selected patient
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(selectedPatient)
+                    {
+                        Title = $"Patient Details - {selectedPatient.PatientName}",
+                        WindowState = WindowState.Maximized
+                    };
+                    integRatedPatient.Show();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error opening patient details: {ex.Message}");
+                    Console.WriteLine($"Error in selection changed: {ex.StackTrace}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No patient selected or invalid selection type");
+            }
+        }
+
+        private void chatbot_btn(object sender, RoutedEventArgs e)
+        {
+            chatbot chatbot = new chatbot
+            {
+                Title = "Chatbot",
+                WindowState = WindowState.Maximized
+            };
+            chatbot.Show();
+            this.Close();
         }
     }
 }

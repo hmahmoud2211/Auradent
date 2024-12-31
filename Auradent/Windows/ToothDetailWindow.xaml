@@ -50,7 +50,7 @@
                 Margin="0,0,0,20">
             <Grid>
                 <!-- Background Image of Tooth -->
-                <Image Source="C:\Users\DELL\Source\Repos\Auradent\Auradent\View\Images\Teeth_selection.jpg"
+                <Image Source="C:\Users\user\Source\Repos\Auradent_final_final\Auradent\View\Images\Teeth_selection.jpg"
                        Stretch="Uniform"
                        Name="ToothImage"/>
 

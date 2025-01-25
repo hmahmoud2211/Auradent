@@ -75,5 +75,16 @@ namespace Auradent.Windows
             // Based on the pageName, load the respective page
 
         }
+
+        private void dashboard_btn(object sender, RoutedEventArgs e)
+        {
+            newdoctordashboard newdoctordashboard = new newdoctordashboard
+            {
+                WindowState = WindowState.Maximized,
+                Title = "Doctor Dashboard"
+            };
+            newdoctordashboard.Show();
+            this.Close();
+        }
     }
 }

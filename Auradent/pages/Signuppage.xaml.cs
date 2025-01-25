@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Auradent.core;
 using Auradent.Data;
+using FontAwesome.WPF;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
@@ -52,10 +53,9 @@ namespace Auradent.pages
             try
             {
                 // Retrieve user input
-                int enteredUserid = int.Parse(ID_txt.Textcontent); // Use Text for TextBox
-                string enteredUserNationalID = National_Id_txt.Textcontent; // Use Text for TextBox
-                string enteredPassword = new_pass_txt.PasswordContent;
-
+                int enteredUserid = int.Parse(ID_txt.Textcontent); // Use Textcontent
+                string enteredUserNationalID = National_Id_txt.Textcontent; // Use Textcontent
+                string enteredPassword = new_pass_txt.Password;
 
                 var user = dataHelperEmployee.GetAllData().FirstOrDefault(u => u.ID == enteredUserid && u.Nationa_ID == enteredUserNationalID);
 
@@ -86,11 +86,7 @@ namespace Auradent.pages
                 else
                 {
                     MessageBox.Show("Invalid ID or National ID", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
-
                 }
-
-
-
             }
             catch (FormatException)
             {
@@ -102,7 +98,7 @@ namespace Auradent.pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -117,6 +113,43 @@ namespace Auradent.pages
             // Show the new window
             newmainWindow.Show();
             Window.GetWindow(this)?.Close();
+        }
+
+        private void new_pass_txt_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            string password = new_pass_txt.Password;
+            PasswordCriteriaPanel.Visibility = Visibility.Visible;
+
+            // Check length
+            bool lengthValid = password.Length >= 8;
+            UpdateCriteriaStatus(lengthValid, LengthIcon, LengthText, "At least 8 characters");
+
+            // Check uppercase
+            bool hasUpper = password.Any(char.IsUpper);
+            UpdateCriteriaStatus(hasUpper, UpperIcon, UpperText, "One uppercase letter");
+
+            // Check lowercase
+            bool hasLower = password.Any(char.IsLower);
+            UpdateCriteriaStatus(hasLower, LowerIcon, LowerText, "One lowercase letter");
+
+            // Check numbers
+            bool hasNumber = password.Any(char.IsDigit);
+            UpdateCriteriaStatus(hasNumber, NumberIcon, NumberText, "One number");
+
+            // Check special characters
+            bool hasSpecial = password.Any(ch => !char.IsLetterOrDigit(ch));
+            UpdateCriteriaStatus(hasSpecial, SpecialIcon, SpecialText, "One special character (!@#$%^&*)");
+
+            // Enable/disable signup button based on all criteria being met
+            Signup_btn.IsEnabled = lengthValid && hasUpper && hasLower && hasNumber && hasSpecial;
+        }
+
+        private void UpdateCriteriaStatus(bool isValid, ImageAwesome icon, TextBlock text, string criteriaText)
+        {
+            icon.Icon = isValid ? FontAwesomeIcon.Check : FontAwesomeIcon.Times;
+            icon.Foreground = new SolidColorBrush(isValid ? Colors.LightGreen : Colors.Red);
+            text.Foreground = new SolidColorBrush(isValid ? Colors.LightGreen : Colors.Red);
+            text.Text = criteriaText;
         }
     }
 }

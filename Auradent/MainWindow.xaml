@@ -36,10 +36,10 @@
         </Grid.RowDefinitions>
 
         <!-- Labels for Text Content -->
-        <Label Content="Connect the distance between" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
+        <Label Content="Every dental visit paints a brighter" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
                Margin="28,29,-28,56" Grid.RowSpan="6" Grid.ColumnSpan="2" />
 
-        <Label Content="you and others!" Grid.Row="1" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
+        <Label Content="healthier smile." Grid.Row="1" Grid.Column="2" FontSize="40" Foreground="#D7EFFB" 
                Margin="32,13,-32,54" Grid.RowSpan="6" Grid.ColumnSpan="2" />
 
         <Label Content="Login to access your account." Grid.Row="2" Grid.Column="2" FontSize="19" 

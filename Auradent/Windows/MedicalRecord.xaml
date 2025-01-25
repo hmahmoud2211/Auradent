@@ -24,160 +24,148 @@
         <Border Background="#f4f4f4"
                 CornerRadius="30"
                 MouseDown="Border_MouseDown">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            
+            <!-- Add ScrollViewer here -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                         HorizontalScrollBarVisibility="Disabled">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <!-- Close Button -->
-                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Margin="0,10,10,0"
-                        Click="CloseButton_Click"
-                        Background="Transparent"
-                        BorderBrush="Transparent">
-                    <fa:ImageAwesome Icon="Times"
+                    <!-- Close Button -->
+                    <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="0,10,10,0"
+                            Click="CloseButton_Click"
+                            Background="Transparent"
+                            BorderBrush="Transparent">
+                        <fa:ImageAwesome Icon="Times"
+                                        Foreground="#3F6F95"
+                                        Width="20"
+                                        Height="20"/>
+                    </Button>
+
+                    <!--Top section-->
+                    <StackPanel Orientation="Horizontal"
+                              VerticalAlignment="Center"
+                              Margin="75 20 0 20">
+                        <!--Title Number-->
+                        <TextBlock x:Name="PatientId"
+                                 Foreground="#3F6F95"
+                                 FontSize="24"
+                                 FontWeight="SemiBold"
+                                 VerticalAlignment="Center"
+                                 Margin="50 0 30 10"/>
+                        <!--Title Texts-->
+                        <StackPanel VerticalAlignment="Center"
+                                  Margin="0 0 0 10">
+                            <TextBlock x:Name="PatientName"
                                      Foreground="#3F6F95"
-                                     Width="20"
-                                     Height="20"/>
-                </Button>
-
-                <!--Top section-->
-                <StackPanel Orientation="Horizontal"
-                            VerticalAlignment="Center"
-                            Margin="75 0 0 40">
-                    <!--Title Number-->
-                    <TextBlock x:Name="PatientId"
-                               Foreground="#3F6F95"
-                               FontSize="24"
-                               FontWeight="SemiBold"
-                               VerticalAlignment="Center"
-                               Margin="50 0 30 10"/>
-                    <!--Title Texts-->
-                    <StackPanel VerticalAlignment="Center"
-                                Margin="0 0 0 10">
-                        <TextBlock x:Name="PatientName"
-                                   Foreground="#3F6F95"
-                                   FontSize="32"
-                                   FontWeight="SemiBold"/>
+                                     FontSize="32"
+                                     FontWeight="SemiBold"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
 
-                <!--Bottom Section-->
-                <Grid Grid.Row="1"
-                      Margin="20 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <!--Bottom Section-->
+                    <Grid Grid.Row="1"
+                          Margin="20 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <!--Lab Results Section-->
-                    <Border Background="#ffffff"
-                            Grid.Column="0"
-                            Padding="30 20 30 20"
-                            CornerRadius="20"
-                            Margin="20 -60 20 40">
-                        <StackPanel>
-                            <TextBlock Text="Laboratory and Test Results"
-                                       Style="{StaticResource title}"
-                                       Margin="0 0 0 0"/>
+                        <!--Scan Results Section-->
+                        <Border Background="#ffffff"
+                                Grid.Column="0"
+                                Padding="30 20 30 20"
+                                CornerRadius="20"
+                                Margin="20 0 20 40">
+                            <StackPanel>
+                                <TextBlock Text="Scan Results"
+                                         Style="{StaticResource title}"
+                                         Margin="0 0 0 10"/>
 
-                            <!-- Upload Button -->
-                            <Button x:Name="UploadLabButton"
-                                    Style="{StaticResource buttonMainGreen}"
-                                    Margin="0,10,0,10"
-                                    Click="UploadLab_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:ImageAwesome Icon="Upload"
-                                                     Width="15"
-                                                     Height="15"
-                                                     Margin="0,0,5,0"
-                                                     Foreground="White"/>
-                                    <TextBlock Text="Upload Lab Test"/>
-                                </StackPanel>
-                            </Button>
+                                <!-- Upload Button -->
+                                <Button Style="{StaticResource pinkButton}"
+                                        Margin="0,10,0,20"
+                                        Click="UploadScan_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <fa:ImageAwesome Icon="Upload"
+                                                       Width="15"
+                                                       Foreground="#ffffff"
+                                                       Margin="0,0,10,0"/>
+                                        <TextBlock Text="Upload Scan"/>
+                                    </StackPanel>
+                                </Button>
 
-                            <!-- Lab Results List -->
-                            <ScrollViewer MaxHeight="500"
-                                          VerticalScrollBarVisibility="Auto">
-                                <ItemsControl x:Name="LabResultsList">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Background="#F5F5F5"
-                                                    Margin="0,0,0,10"
-                                                    CornerRadius="8"
-                                                    Padding="15">
-                                                <StackPanel>
-                                                    <Button Background="Transparent"
-                                                            BorderThickness="0"
-                                                            Padding="0"
-                                                            Click="ViewImage_Click">
-                                                        <Image Source="{Binding Labtests, Converter={StaticResource ByteArrayToImageConverter}}"
+                                <!-- Scans List -->
+                                <ScrollViewer MaxHeight="450"
+                                            VerticalScrollBarVisibility="Auto">
+                                    <ItemsControl x:Name="ScansList">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="#F5F5F5"
+                                                        Margin="0,0,0,10"
+                                                        CornerRadius="8"
+                                                        Padding="15">
+                                                    <StackPanel>
+                                                        <Image Source="{Binding ImageSource}"
                                                                MaxHeight="200"
                                                                Stretch="Uniform"
                                                                Margin="0,0,0,10"/>
-                                                    </Button>
-                                                    <TextBlock Text="{Binding Report}"
-                                                               TextWrapping="Wrap"/>
-                                                    <TextBlock Text="{Binding UploadDate, StringFormat={}Uploaded on: {0:d}}"
-                                                               Foreground="#666666"
-                                                               Margin="0,5,0,0"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </ScrollViewer>
-                        </StackPanel>
-                    </Border>
+                                                        <TextBlock Text="{Binding ScanDate, StringFormat={}Scan Date: {0:d}}"
+                                                                 Foreground="#666666"/>
+                                                        <Button Content="Process with OCR"
+                                                                Click="ProcessOCR_Click"
+                                                                Tag="{Binding Id}"
+                                                                Style="{StaticResource pinkButton}"
+                                                                Margin="0,10,0,0"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </Border>
 
-                    <!--Images Section-->
-                    <Border Background="#ffffff"
-                            Grid.Column="1"
-                            Padding="30 20 30 0"
-                            CornerRadius="20"
-                            Margin="20 -60 20 40">
-                        <StackPanel>
-                            <TextBlock Text="Images"
-                                       Style="{StaticResource title}"/>
-                            <TextBlock Style="{StaticResource desc}">
-                                <Run>View uploaded images and their analysis</Run>
-                            </TextBlock>
+                        <!--OCR Results Section-->
+                        <Border Background="#ffffff"
+                                Grid.Column="1"
+                                Padding="30 20 30 20"
+                                CornerRadius="20"
+                                Margin="20 0 20 40">
+                            <StackPanel>
+                                <TextBlock Text="OCR Results"
+                                         Style="{StaticResource title}"
+                                         Margin="0 0 0 20"/>
 
-                            <!-- Images List -->
-                            <ScrollViewer MaxHeight="500"
-                                          VerticalScrollBarVisibility="Auto"
-                                          Margin="0,10,0,0">
-                                <ItemsControl x:Name="ImagesList">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Background="#F5F5F5"
-                                                    Margin="0,0,0,10"
-                                                    CornerRadius="8"
-                                                    Padding="15">
-                                                <StackPanel>
-                                                    <Image Source="{Binding Labtests, Converter={StaticResource ByteArrayToImageConverter}}"
-                                                           MaxHeight="200"
-                                                           Stretch="Uniform"
-                                                           Margin="0,0,0,10"/>
-                                                    <TextBlock Text="{Binding Report}"
-                                                               TextWrapping="Wrap"
-                                                               Margin="0,5,0,5"/>
-                                                    <TextBlock Text="{Binding UploadDate, StringFormat={}Uploaded on: {0:d}}"
-                                                               Foreground="#666666"
-                                                               FontSize="12"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </ScrollViewer>
-                        </StackPanel>
-                    </Border>
+                                <!-- OCR Results Display -->
+                                <ScrollViewer MaxHeight="500"
+                                            VerticalScrollBarVisibility="Auto">
+                                    <TextBox x:Name="OcrResultsText"
+                                             IsReadOnly="True"
+                                             TextWrapping="Wrap"
+                                             AcceptsReturn="True"
+                                             Height="Auto"
+                                             MinHeight="200"
+                                             Background="#F5F5F5"
+                                             Padding="10"/>
+                                </ScrollViewer>
+
+                                <!-- Save Button -->
+                                <Button Content="Save Results"
+                                        Click="SaveResults_Click"
+                                        Style="{StaticResource pinkButton}"
+                                        Margin="0,20,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Window>

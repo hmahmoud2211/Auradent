@@ -20,21 +20,33 @@ namespace Auradent.View.Usercontrols
     /// </summary>
     public partial class Textboxsignup : UserControl
     {
+        public string Textcontent
+        {
+            get { return (string)GetValue(TextcontentProperty); }
+            set { SetValue(TextcontentProperty, value); }
+        }
+
+        public static readonly DependencyProperty TextcontentProperty =
+            DependencyProperty.Register("Textcontent", typeof(string), typeof(Textboxsignup), new PropertyMetadata(string.Empty));
+
+        public string Placeholder
+        {
+            get { return (string)GetValue(PlaceholderProperty); }
+            set 
+            { 
+                SetValue(PlaceholderProperty, value);
+                tbplaceholder.Text = value;
+            }
+        }
+
+        public static readonly DependencyProperty PlaceholderProperty =
+            DependencyProperty.Register("Placeholder", typeof(string), typeof(Textboxsignup), new PropertyMetadata(string.Empty));
+
         public Textboxsignup()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
-        private String placeholder;
-
-        public String Placeholder
-        {
-            get { return placeholder; }
-            set { 
-                placeholder = value;
-                tbplaceholder.Text = placeholder;
-            }
-        }
-        public string Textcontent => Txt_sign_up.Text;
 
         private void Txt_sign_up_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -46,7 +58,7 @@ namespace Auradent.View.Usercontrols
             {
                 tbplaceholder.Visibility = Visibility.Hidden;
             }
-
         }
     }
 }
+

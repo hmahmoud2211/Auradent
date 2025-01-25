@@ -40,7 +40,7 @@
         <Grid Background="#6A5ACD" Width="250" Margin="250,10,700,55">
             <StackPanel Margin="10">
                 <TextBlock Text="Clinical System" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,10"/>
-                <Button Content="Dashboard" Style="{StaticResource NavButtonStyle}" />
+                <Button Content="Dashboard" Style="{StaticResource NavButtonStyle}" Click="dashboard_btn"/>
                 <Button Content="Patients" Style="{StaticResource NavButtonStyle}" />
                 <Button Content="Appointments" Style="{StaticResource NavButtonStyle}" />
                 <Button Content="Messages" Style="{StaticResource NavButtonStyle}" />

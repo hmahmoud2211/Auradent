@@ -9,6 +9,7 @@ using Auradent.core;
 using Auradent.Data;
 using System.Windows.Controls;
 using System.Windows.Media;
+using IronOcr;
 
 namespace Auradent.Windows
 {
@@ -17,36 +18,47 @@ namespace Auradent.Windows
         private readonly Patient currentPatient;
         private readonly RadiologyEF radiologyEF;
         private ObservableCollection<RadiologyORtest> labResults;
+        private readonly IronTesseract _ocr;
+        private ObservableCollection<ScanItem> _scans;
 
         public MedicalRecord(Patient patient)
         {
             InitializeComponent();
             currentPatient = patient;
             radiologyEF = new RadiologyEF();
-
+            
+            // Initialize OCR
+            _ocr = new IronTesseract();
+            _ocr.Language = OcrLanguage.English;
+            
             // Initialize collections
-            labResults = new ObservableCollection<RadiologyORtest>();
+            _scans = new ObservableCollection<ScanItem>();
 
             // Set patient info
             PatientId.Text = $"ID: {currentPatient.PatientID}";
             PatientName.Text = currentPatient.PatientName;
 
-            LoadLabResults();
+            // Set the scans list source
+            ScansList.ItemsSource = _scans;
         }
 
         private void LoadLabResults()
         {
-            var results = radiologyEF.GetAllData();
-            foreach (var result in results)
+            try
             {
-                if (result.MedicalRecordID == currentPatient.PatientID)
+                var results = radiologyEF.GetAllData();
+                foreach (var result in results)
                 {
-                    labResults.Add(result);
+                    if (result.MedicalRecordID == currentPatient.PatientID)
+                    {
+                        labResults.Add(result);
+                    }
                 }
             }
-
-            LabResultsList.ItemsSource = labResults;
-            ImagesList.ItemsSource = labResults;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading lab results: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -143,5 +155,96 @@ namespace Auradent.Windows
                 }
             }
         }
+
+        private void UploadScan_Click(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image files (*.png;*.jpeg;*.jpg;*.bmp;*.gif)|*.png;*.jpeg;*.jpg;*.bmp;*.gif|All files (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    var imageBytes = File.ReadAllBytes(openFileDialog.FileName);
+                    var scan = new ScanItem
+                    {
+                        Id = Guid.NewGuid(),
+                        ImageSource = new BitmapImage(new Uri(openFileDialog.FileName)),
+                        ScanDate = DateTime.Now,
+                        FilePath = openFileDialog.FileName
+                    };
+                    _scans.Add(scan);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error uploading scan: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private async void ProcessOCR_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is Guid scanId)
+            {
+                var scan = _scans.FirstOrDefault(s => s.Id == scanId);
+                if (scan != null)
+                {
+                    try
+                    {
+                        using (var input = new OcrInput(scan.FilePath))
+                        {
+                            input.Deskew();  // Fix image rotation
+                            input.DeNoise(); // Remove noise
+                            
+                            var result = _ocr.Read(input);
+                            OcrResultsText.Text = result.Text;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"OCR Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        private void SaveResults_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(OcrResultsText.Text))
+            {
+                MessageBox.Show("No OCR results to save.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                DefaultExt = "txt",
+                FileName = $"OCR_Results_{currentPatient.PatientID}_{DateTime.Now:yyyyMMdd}"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    File.WriteAllText(saveFileDialog.FileName, OcrResultsText.Text);
+                    MessageBox.Show("Results saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error saving results: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+    }
+
+    public class ScanItem
+    {
+        public Guid Id { get; set; }
+        public BitmapImage ImageSource { get; set; }
+        public DateTime ScanDate { get; set; }
+        public string FilePath { get; set; }
     }
 }

@@ -14,7 +14,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Xml;
+using System.Net.Http;
+using System.Timers;
 namespace Auradent.Windows
 {
     /// <summary>
@@ -25,6 +27,8 @@ namespace Auradent.Windows
         private readonly IdataHelper<Patient> dataHelperPatient;
         private readonly IdataHelper<Appointment> dataHelperAppointment;
         private List<OntologyArticle> allOntologyArticles;
+        private List<ResearchPaper> allResearchPapers;
+        private System.Timers.Timer searchDebounceTimer;
 
         public newdoctordashboard()
         {
@@ -38,6 +42,29 @@ namespace Auradent.Windows
             dataHelperAppointment = services.GetService<IdataHelper<Appointment>>() ?? throw new InvalidOperationException("Appointment data helper service is not available.");
             LoadTodaysAppointments();
             LoadOntologyData();
+            
+            // Initialize research papers asynchronously
+            _ = InitializeResearchPapers();
+
+            // Initialize the debounce timer
+            searchDebounceTimer = new System.Timers.Timer(1000); // 1 second delay
+            searchDebounceTimer.AutoReset = false;
+            searchDebounceTimer.Elapsed += async (s, e) =>
+            {
+                await Application.Current.Dispatcher.InvokeAsync(async () =>
+                {
+                    string searchText = ResearchSearchBox.Text?.Trim();
+                    if (!string.IsNullOrWhiteSpace(searchText))
+                    {
+                        await LoadResearchPapers($"dental AND {searchText}");
+                    }
+                });
+            };
+        }
+
+        private async Task InitializeResearchPapers()
+        {
+            await LoadResearchPapers("dental research latest");
         }
 
         private void LoadTodaysAppointments()
@@ -118,9 +145,9 @@ namespace Auradent.Windows
                 var patient = dataHelperPatient.GetAllData().FirstOrDefault(p => p.PatientID == todaysAppointments.PatientID_FK);
                 if (patient != null)
                 {
-                    IntegRatedPatient integRatedPatient = new IntegRatedPatient
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
                     {
-                        Title = "Patient Details - ",
+                        Title = $"Patient Details - {patient.PatientName}",
                         WindowState = WindowState.Maximized
                     };
                     integRatedPatient.Show();
@@ -154,9 +181,9 @@ namespace Auradent.Windows
                 var patient = dataHelperPatient.GetAllData().FirstOrDefault(p => p.PatientID == todaysAppointments.PatientID_FK);
                 if (patient != null)
                 {
-                    IntegRatedPatient integRatedPatient = new IntegRatedPatient
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
                     {
-                        Title = "Patient Details - " ,
+                        Title = $"Patient Details - {patient.PatientName}",
                         WindowState = WindowState.Maximized
                     };
                     integRatedPatient.Show();
@@ -179,9 +206,9 @@ namespace Auradent.Windows
                 var patient = dataHelperPatient.GetAllData().FirstOrDefault(p => p.PatientID == todaysAppointments.PatientID_FK);
                 if (patient != null)
                 {
-                    IntegRatedPatient integRatedPatient = new IntegRatedPatient
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
                     {
-                        Title = "Patient Details - ",
+                        Title = $"Patient Details - {patient.PatientName}",
                         WindowState = WindowState.Maximized
                     };
                     integRatedPatient.Show();
@@ -473,6 +500,166 @@ namespace Auradent.Windows
             };
             chatbot.Show();
             this.Close();
+        }
+
+        public class ResearchPaper
+        {
+            public string Title { get; set; }
+            public string Authors { get; set; }
+            public string Journal { get; set; }
+            public string PublishDate { get; set; }
+            public string Url { get; set; }
+        }
+
+        private async Task LoadResearchPapers(string searchQuery = "dental")
+        {
+            try
+            {
+                using (var client = new System.Net.Http.HttpClient())
+                {
+                    string baseUrl = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
+                    
+                    // Increase delay to 1 second
+                    await Task.Delay(1000);
+
+                    string searchUrl = $"{baseUrl}esearch.fcgi?" +
+                        $"db=pubmed&" +
+                        $"term={Uri.EscapeDataString(searchQuery)}&" +
+                        "retmax=5&" +
+                        "sort=date";
+
+                    var searchResponse = await client.GetStringAsync(searchUrl);
+                    var xmlDoc = new System.Xml.XmlDocument();
+                    xmlDoc.LoadXml(searchResponse);
+                    var idNodes = xmlDoc.SelectNodes("//Id");
+
+                    var papers = new List<ResearchPaper>();
+                    
+                    if (idNodes != null)
+                    {
+                        foreach (System.Xml.XmlNode idNode in idNodes)
+                        {
+                            if (idNode?.InnerText == null) continue;
+
+                            // Increase delay between article requests to 1 second
+                            await Task.Delay(1000);
+
+                            string detailUrl = $"{baseUrl}esummary.fcgi?" +
+                                $"db=pubmed&" +
+                                $"id={idNode.InnerText}";
+
+                            try
+                            {
+                                var detailResponse = await client.GetStringAsync(detailUrl);
+                                var detailXml = new System.Xml.XmlDocument();
+                                detailXml.LoadXml(detailResponse);
+
+                                var docSum = detailXml.SelectSingleNode("//DocSum");
+                                if (docSum != null)
+                                {
+                                    var paper = new ResearchPaper
+                                    {
+                                        Title = GetXmlItemContent(docSum, "Title") ?? "No Title",
+                                        Authors = GetXmlItemContent(docSum, "Author") ?? "No Authors",
+                                        Journal = GetXmlItemContent(docSum, "Source") ?? "No Journal",
+                                        PublishDate = GetXmlItemContent(docSum, "PubDate") ?? "No Date",
+                                        Url = $"https://pubmed.ncbi.nlm.nih.gov/{idNode.InnerText}/"
+                                    };
+                                    
+                                    papers.Add(paper);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Error processing article {idNode.InnerText}: {ex.Message}");
+                                continue;
+                            }
+                        }
+                    }
+
+                    allResearchPapers = papers;
+                    await Application.Current.Dispatcher.InvokeAsync(() =>
+                    {
+                        UpdateResearchList(papers);
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.Dispatcher.InvokeAsync(() =>
+                {
+                    MessageBox.Show($"Error loading research papers: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                });
+            }
+        }
+
+        // Helper method to get content from XML
+        private string GetXmlItemContent(System.Xml.XmlNode docSum, string itemName)
+        {
+            var node = docSum.SelectSingleNode($".//Item[@Name='{itemName}']");
+            return node?.InnerText;
+        }
+
+        private void UpdateResearchList(IEnumerable<ResearchPaper> papers)
+        {
+            ResearchList.ItemsSource = papers;
+        }
+
+        private void ResearchSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            searchDebounceTimer.Stop(); // Reset the timer
+            
+            string searchText = ResearchSearchBox.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                if (allResearchPapers != null)
+                {
+                    UpdateResearchList(allResearchPapers);
+                }
+                return;
+            }
+
+            searchDebounceTimer.Start(); // Start the timer
+        }
+
+        private void ViewResearchPaper_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is string url)
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error opening URL: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void ViewPatient_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is FrameworkElement element && element.DataContext is Patient patient)
+            {
+                try
+                {
+                    // Keep the current window open
+                    IntegRatedPatient integRatedPatient = new IntegRatedPatient(patient)
+                    {
+                        Title = $"Patient Details - {patient.PatientName}",
+                        WindowState = WindowState.Maximized
+                    };
+                    integRatedPatient.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error opening patient details: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

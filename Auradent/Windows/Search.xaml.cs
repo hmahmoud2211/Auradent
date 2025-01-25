@@ -228,13 +228,7 @@ namespace Auradent.Windows
 
         private void cahtbot_btn(object sender, RoutedEventArgs e)
         {
-            chatbot chatbot = new chatbot
-            {
-                WindowState = WindowState.Maximized,
-                Title = "Chatbot"
-            };
-            chatbot.Show();
-            this.Close();
+           
         }
     }
 

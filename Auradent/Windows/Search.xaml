@@ -87,7 +87,7 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource menuButton_newdashboard}" Click="Button_Click">
+                    <Button Style="{StaticResource menuButton_newdashboard}" Click="cahtbot_btn">
                         <StackPanel>
                             <fa:ImageAwesome Icon="Comments"
                                              Foreground="#3b3b3b"

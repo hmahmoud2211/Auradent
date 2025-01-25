@@ -20,22 +20,52 @@ namespace Auradent.View.Usercontrols
     /// </summary>
     public partial class Passwordtxtbox : UserControl
     {
-        public Passwordtxtbox()
+        public event EventHandler<RoutedEventArgs> PasswordChanged;
+
+        public string PasswordContent
         {
-            InitializeComponent();
+            get { return passwordBox.Password; }
+            set { passwordBox.Password = value; }
         }
-        private string placeholder;
+
+        public string Password
+        {
+            get { return passwordBox.Password; }
+            set { passwordBox.Password = value; }
+        }
 
         public string Placeholder
         {
-            get { return placeholder; }
-            set
-            {
-                placeholder = value;
-                tbplaceholder.Text = placeholder;
+            get { return (string)GetValue(PlaceholderProperty); }
+            set 
+            { 
+                SetValue(PlaceholderProperty, value);
+                tbplaceholder.Text = value;
             }
         }
-        public string PasswordContent => pass_txt.Password;
+
+        public static readonly DependencyProperty PlaceholderProperty =
+            DependencyProperty.Register("Placeholder", typeof(string), typeof(Passwordtxtbox), new PropertyMetadata(string.Empty));
+
+        public Passwordtxtbox()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (passwordBox != null && string.IsNullOrEmpty(passwordBox.Password))
+            {
+                tbplaceholder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                tbplaceholder.Visibility = Visibility.Hidden;
+            }
+
+            PasswordChanged?.Invoke(this, e);
+        }
 
         private void Txt_sign_up_PasswordChanged(object sender, RoutedEventArgs e)
         {
@@ -50,37 +80,34 @@ namespace Auradent.View.Usercontrols
             }
             if (PasswordTextBox.Visibility == Visibility.Visible)
             {
-                PasswordTextBox.Text = pass_txt.Password;
+                PasswordTextBox.Text = passwordBox.Password;
             }
         }
 
         private void TogglePasswordVisibility_Click(object sender, RoutedEventArgs e)
         {
-            if (pass_txt.Visibility == Visibility.Visible)
+            if (passwordBox.Visibility == Visibility.Visible)
             {
                 // Show password
-                PasswordTextBox.Text = pass_txt.Password;
-                pass_txt.Visibility = Visibility.Collapsed;
+                PasswordTextBox.Text = passwordBox.Password;
+                passwordBox.Visibility = Visibility.Collapsed;
                 PasswordTextBox.Visibility = Visibility.Visible;
             }
             else
             {
                 // Hide password
-                pass_txt.Password = PasswordTextBox.Text;
+                passwordBox.Password = PasswordTextBox.Text;
                 PasswordTextBox.Visibility = Visibility.Collapsed;
-                pass_txt.Visibility = Visibility.Visible;
+                passwordBox.Visibility = Visibility.Visible;
             }
         }
-
-        
 
         private void pass_txt_PasswordChanged_1(object sender, RoutedEventArgs e)
         {
             if (PasswordTextBox.Visibility == Visibility.Visible)
             {
-                PasswordTextBox.Text = pass_txt.Password;
+                PasswordTextBox.Text = passwordBox.Password;
             }
         }
     }
-
 }

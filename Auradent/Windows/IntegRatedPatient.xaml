@@ -92,7 +92,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton_newdashboard}" Click="Button_Click_1">
+                        <Button Style="{StaticResource menuButton_newdashboard}" Click="chatbot_btn">
                             <StackPanel>
                                 <fa:ImageAwesome Icon="Comments"
                                                  Foreground="#3b3b3b"

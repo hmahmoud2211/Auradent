@@ -31,13 +31,23 @@ namespace Auradent
             DoctorandNurse login_data = new DoctorandNurse
             {
                 ID = 1,
-                Username = "hazem",
+                Username = "doctor",
                 Password = "123",
                 Role = "doctor",
                 Nationa_ID = "30309290113038"
             };
             if (!dataHelperEmployee.CheckIfIdExists(1))
                 dataHelperEmployee.Add(login_data);
+            DoctorandNurse login_data_nurse = new DoctorandNurse
+            {
+                ID = 2,
+                Username = "nurse",
+                Password = "123",
+                Role = "nurse",
+                Nationa_ID = "30309290113037"
+            };
+            if (!dataHelperEmployee.CheckIfIdExists(2))
+                dataHelperEmployee.Add(login_data_nurse);
         }
 
 
@@ -66,7 +76,7 @@ namespace Auradent
             string enteredPassword = Pass_txt_box.PasswordContent;
             var user = dataHelperEmployee.GetAllData().FirstOrDefault(u => u.Username == enteredUsername && u.Password == enteredPassword);
 
-            if (user != null)
+            if (user != null && enteredUsername == "doctor")
             {
 
                 newdoctordashboard newdoctordashboard = new newdoctordashboard
@@ -79,8 +89,20 @@ namespace Auradent
             }
             else
             {
-                MessageBox.Show("Invalid Username or Password", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
-
+                if (user != null && enteredUsername == "nurse")
+                {
+                    Nurse_s_dashboard nurse_S_Dashboard = new Nurse_s_dashboard
+                    {
+                        Title = "Nurse's Dashboard",
+                        WindowState = WindowState.Maximized
+                    };
+                    nurse_S_Dashboard.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
         private void Signup_btn_Click(object sender, RoutedEventArgs e)

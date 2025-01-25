@@ -43,6 +43,7 @@
 	<ItemGroup>
 		<PackageReference Include="font-awesome" Version="4.7.0" />
 		<PackageReference Include="FontAwesome" Version="4.7.0" />
+		<PackageReference Include="Fontawesome-for-WPF" Version="1.0.2312" />
 		<PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
 		<PackageReference Include="IronOcr" Version="2024.12.2" />
 		<PackageReference Include="LiveCharts" Version="0.9.7" />

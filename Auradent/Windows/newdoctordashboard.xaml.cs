@@ -493,13 +493,7 @@ namespace Auradent.Windows
 
         private void chatbot_btn(object sender, RoutedEventArgs e)
         {
-            chatbot chatbot = new chatbot
-            {
-                Title = "Chatbot",
-                WindowState = WindowState.Maximized
-            };
-            chatbot.Show();
-            this.Close();
+           
         }
 
         public class ResearchPaper

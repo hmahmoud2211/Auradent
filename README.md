@@ -65,4 +65,4 @@ The system is built with scalability in mind, allowing it to grow alongside the 
 ### Step 1: Clone the Repository
    ```bash
    git clone https://github.com/hmahmoud2211/Auradent.git
-   cd AuraDent-DCMS
+   cd Auradent

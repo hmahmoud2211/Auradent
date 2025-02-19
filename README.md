@@ -48,7 +48,7 @@ The system is built with scalability in mind, allowing it to grow alongside the 
 
 ### Hardware Requirements
 - **Processor**: Intel i5 or equivalent
-- **RAM**: 8GB (minimum)
+- **RAM**: 4GB (minimum)
 - **Storage**: 256GB SSD (recommended for smooth operations)
 
 ### Software Dependencies
